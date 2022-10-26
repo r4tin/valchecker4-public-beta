@@ -46,5 +46,35 @@ namespace ValChecker_5._0
         {
 
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checker_main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tempbannum_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tempbantext_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_3(object sender, EventArgs e)
+        {
+
+        }
     }
 }

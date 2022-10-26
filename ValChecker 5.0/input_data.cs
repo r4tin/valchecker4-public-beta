@@ -21,6 +21,7 @@ namespace ValChecker_5._0
         protected string proxyfile;
         protected string combofile;
         protected int threadnum;
+        string bgfile;
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog loadcombo = new OpenFileDialog();
@@ -37,6 +38,12 @@ namespace ValChecker_5._0
                 combofile = comboFN;
                 string[] lines = System.IO.File.ReadAllLines(comboFN);
                 combotext.Text = "Loaded "+Convert.ToString(lines.Length)+" Logpasses";
+            }
+            if (proxyfile != null && proxytext != null)
+            {
+                //guna2Panel1.Cursor = Cursors.Arrow;
+                guna2Panel1.Enabled = false;
+                startchecker.Enabled = true;
             }
         }
 
@@ -56,6 +63,12 @@ namespace ValChecker_5._0
                 proxyfile = proxyFN;
                 string[] lines = System.IO.File.ReadAllLines(proxyFN);
                 proxytext.Text = "Loaded " + Convert.ToString(lines.Length) + " Proxies";
+            }
+            if (proxyfile != null && proxytext != null)
+            {
+                //guna2Panel1.Cursor = Cursors.Arrow;
+                guna2Panel1.Enabled = false;
+                startchecker.Enabled = true;
             }
         }
 
@@ -84,8 +97,26 @@ namespace ValChecker_5._0
         private void startchecker_Click(object sender, EventArgs e)
         {
             this.Hide();
-            checker vlchecker = new checker(proxyfile, combofile, threadnum);
+            checker vlchecker = new checker(proxyfile, combofile, threadnum,bgfile);
             vlchecker.Main();
+        }
+
+        //choose bg
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog loadproxy = new OpenFileDialog();
+
+            loadproxy.InitialDirectory = "c:\\";
+            loadproxy.Filter = "Text files (*.png; *.jpg)|*.png; *.jpg";
+            loadproxy.FilterIndex = 0;
+            loadproxy.RestoreDirectory = true;
+            loadproxy.Title = "choose ur background file";
+
+            if (loadproxy.ShowDialog() == DialogResult.OK)
+            {
+                bgfile = loadproxy.FileName;
+
+            }
         }
     }
 }

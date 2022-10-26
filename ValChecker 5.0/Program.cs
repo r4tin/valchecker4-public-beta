@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -30,11 +31,13 @@ namespace ValChecker_5._0
         int threadscount;
         int valid = 0;
         int banned = 0;
-        public checker(string _proxyfile, string _combofile, int _threadscount)
+        string bgimage;
+        public checker(string _proxyfile, string _combofile, int _threadscount, string _bgfile)
         {
             proxyfile = _proxyfile;
             combofile = _combofile;
             threadscount = _threadscount;
+            bgimage = _bgfile;
 
             if (proxyfile == null)
             {
@@ -52,6 +55,12 @@ namespace ValChecker_5._0
             checker_main chm = new checker_main();
             chm.Show();
 
+            if (bgimage != null)
+            {
+                Image myimage = new Bitmap(bgimage);
+                chm.BackgroundImage = myimage;
+            }
+
             // get combos
             string[] accounts = System.IO.File.ReadAllLines(combofile);
             chm.logpasstext.Text = $"Combo: {accounts.Length}";
@@ -62,6 +71,9 @@ namespace ValChecker_5._0
 
             //set threads
             chm.threadstext.Text = $"Threads: {threadscount}";
+
+            string aa = auth.Main("Abdullah6129:k16006113050","123");
+            chm.testtest.Text = aa;
 
         }
     }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(input_data));
             this.loadcombo = new System.Windows.Forms.Button();
             this.loadproxy = new System.Windows.Forms.Button();
             this.combotext = new System.Windows.Forms.TextBox();
@@ -35,6 +36,8 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.threadscount = new System.Windows.Forms.TextBox();
             this.startchecker = new System.Windows.Forms.Button();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.choosebg = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,6 +114,8 @@
             // startchecker
             // 
             this.startchecker.BackColor = System.Drawing.Color.Gray;
+            this.startchecker.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.startchecker.Enabled = false;
             this.startchecker.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.startchecker.Location = new System.Drawing.Point(73, 257);
             this.startchecker.Name = "startchecker";
@@ -120,12 +125,35 @@
             this.startchecker.UseVisualStyleBackColor = false;
             this.startchecker.Click += new System.EventHandler(this.startchecker_Click);
             // 
-            // Form1
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.Cursor = System.Windows.Forms.Cursors.No;
+            this.guna2Panel1.Location = new System.Drawing.Point(73, 257);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(367, 83);
+            this.guna2Panel1.TabIndex = 7;
+            this.guna2Panel1.UseTransparentBackground = true;
+            // 
+            // choosebg
+            // 
+            this.choosebg.BackColor = System.Drawing.Color.Gray;
+            this.choosebg.Location = new System.Drawing.Point(443, 12);
+            this.choosebg.Name = "choosebg";
+            this.choosebg.Size = new System.Drawing.Size(71, 21);
+            this.choosebg.TabIndex = 8;
+            this.choosebg.Text = "choose BG";
+            this.choosebg.UseVisualStyleBackColor = false;
+            this.choosebg.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // input_data
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(517, 369);
+            this.Controls.Add(this.choosebg);
+            this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.startchecker);
             this.Controls.Add(this.threadscount);
             this.Controls.Add(this.trackBar1);
@@ -135,7 +163,8 @@
             this.Controls.Add(this.loadcombo);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Name = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "input_data";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ValChecker 5.0 by liljaba1337";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -154,6 +183,8 @@
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.TextBox threadscount;
         private System.Windows.Forms.Button startchecker;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private System.Windows.Forms.Button choosebg;
     }
 }
 
