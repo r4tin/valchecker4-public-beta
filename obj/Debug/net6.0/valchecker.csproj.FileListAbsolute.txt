@@ -1,0 +1,17 @@
+C:\Users\roadhog\source\repos\valchecker\obj\Debug\net6.0\valchecker.csproj.AssemblyReference.cache
+C:\Users\roadhog\source\repos\valchecker\obj\Debug\net6.0\valchecker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\roadhog\source\repos\valchecker\obj\Debug\net6.0\valchecker.AssemblyInfoInputs.cache
+C:\Users\roadhog\source\repos\valchecker\obj\Debug\net6.0\valchecker.AssemblyInfo.cs
+C:\Users\roadhog\source\repos\valchecker\obj\Debug\net6.0\valchecker.csproj.CoreCompileInputs.cache
+C:\Users\roadhog\source\repos\valchecker\bin\Debug\net6.0\valchecker.exe
+C:\Users\roadhog\source\repos\valchecker\bin\Debug\net6.0\valchecker.deps.json
+C:\Users\roadhog\source\repos\valchecker\bin\Debug\net6.0\valchecker.runtimeconfig.json
+C:\Users\roadhog\source\repos\valchecker\bin\Debug\net6.0\valchecker.dll
+C:\Users\roadhog\source\repos\valchecker\bin\Debug\net6.0\valchecker.pdb
+C:\Users\roadhog\source\repos\valchecker\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\roadhog\source\repos\valchecker\obj\Debug\net6.0\valchecker.csproj.CopyComplete
+C:\Users\roadhog\source\repos\valchecker\obj\Debug\net6.0\valchecker.dll
+C:\Users\roadhog\source\repos\valchecker\obj\Debug\net6.0\refint\valchecker.dll
+C:\Users\roadhog\source\repos\valchecker\obj\Debug\net6.0\valchecker.pdb
+C:\Users\roadhog\source\repos\valchecker\obj\Debug\net6.0\valchecker.genruntimeconfig.cache
+C:\Users\roadhog\source\repos\valchecker\obj\Debug\net6.0\ref\valchecker.dll
