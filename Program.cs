@@ -1,19 +1,17 @@
-﻿using System;
-using valchecker;
-
-public class Program
+namespace valchecker_4._0_private_beta
 {
-    public static async Task Main(string[] args)
+    internal static class Program
     {
-        RiotClient client = new RiotClient();
-        Account account = await client.AuthAsync("Spiacydamixus:BOBERKOWNICAak8");
-        if(account.region == null) { return; } // do smth here
-        await accountinfo.get_rank(account);
-        await accountinfo.get_lastplayed(account);
-        await accountinfo.get_balance(account);
-        await accountinfo.get_skins(account);
-
-        Console.WriteLine(account.ToString());
-        Console.WriteLine(account.errmsg!=null ? account.errmsg : account.code);
+        /// <summary>
+        ///  The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            ApplicationConfiguration.Initialize();
+            Application.Run(new Form1());
+        }
     }
 }

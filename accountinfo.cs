@@ -117,8 +117,7 @@ namespace valchecker
             var response = await client.GetAsync($"https://pd.{region}.a.pvp.net/store/v1/entitlements/{account.puuid}/e7c63390-eda7-46e0-bb7a-a6abdacd2433");
             var responsetext = await response.Content.ReadAsStringAsync();
             var responsejson = Newtonsoft.Json.JsonConvert.DeserializeObject<skinsrequest.main>(responsetext);
-            var skinsjson = Newtonsoft.Json.JsonConvert.DeserializeObject<skinsjson.main>(File.ReadAllText("C:\\Users\\roadhog\\source\\repos\\" +
-                "valchecker\\assets\\skins.json")); // change this later
+            var skinsjson = skinsjsonloader.skins;
             if (responsejson.Entitlements.Count == 0)
             {
                 account.skins = skins;

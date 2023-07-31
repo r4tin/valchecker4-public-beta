@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "valchecker-4.0-private-beta", "valchecker-4.0-private-beta.csproj", "{F022C740-9155-418C-91EA-EF647827BD9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F022C740-9155-418C-91EA-EF647827BD9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F022C740-9155-418C-91EA-EF647827BD9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F022C740-9155-418C-91EA-EF647827BD9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F022C740-9155-418C-91EA-EF647827BD9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2F7B5CE-5F02-4F1F-8739-B2C2BA2BE2D6}
+	EndGlobalSection
+EndGlobal

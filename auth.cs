@@ -85,7 +85,7 @@ public class RiotClient
 
         return null; // Return null if the pattern is not matched
     }
-    public async Task<Account> AuthAsync(string logpass = null, string username = null, string password = null, string proxy = null)
+    public async Task<Account> AuthAsync(string? logpass = null, string? username = null, string? password = null, string? proxy = null)
     {
         Account account = new Account();
         try
@@ -214,6 +214,7 @@ public class RiotClient
                 return account;
             }
 
+            Console.WriteLine("entt good");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             content = new StringContent("", Encoding.UTF8, "application/json");
             response = await client.PostAsync(Constants.ENTITLEMENT_URL, content);
@@ -236,6 +237,7 @@ public class RiotClient
             if (bantime == new DateTimeOffset())
             {
                 account.code = 4;
+                Console.WriteLine("banned");
                 return account;
             }
             account.banuntil = bantime;

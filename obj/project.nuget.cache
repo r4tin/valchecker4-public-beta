@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RkfZlEchL714b4V4DubrknnJJUwvIbkO45sTX6hKGhNrsdPbSYQKcvr1AH2iWpraOES724IWXPBVuvdYUWEBqQ==",
+  "dgSpecHash": "mVLVKwe3Ni8zpTItrg+Yv4Bz0darZRsIYFlJNZcad5nON03gO338i5joMm7CgChFBBs+EYCipfVNd1B89JL/Vg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\roadhog\\source\\repos\\valchecker\\valchecker.csproj",
+  "projectFilePath": "C:\\Users\\roadhog\\source\\repos\\valchecker-4.0-private-beta\\valchecker-4.0-private-beta.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\roadhog\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\roadhog\\.nuget\\packages\\microsoft.netcore.platforms\\1.0.1\\microsoft.netcore.platforms.1.0.1.nupkg.sha512",

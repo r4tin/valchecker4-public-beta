@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
+    "net6.0-windows7.0": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -2746,7 +2746,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0": [
+    "net6.0-windows7.0": [
       "Newtonsoft.Json >= 9.0.1"
     ]
   },
@@ -2756,25 +2756,25 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\roadhog\\source\\repos\\valchecker\\valchecker.csproj",
-      "projectName": "valchecker",
-      "projectPath": "C:\\Users\\roadhog\\source\\repos\\valchecker\\valchecker.csproj",
+      "projectUniqueName": "C:\\Users\\roadhog\\source\\repos\\valchecker-4.0-private-beta\\valchecker-4.0-private-beta.csproj",
+      "projectName": "valchecker-4.0-private-beta",
+      "projectPath": "C:\\Users\\roadhog\\source\\repos\\valchecker-4.0-private-beta\\valchecker-4.0-private-beta.csproj",
       "packagesPath": "C:\\Users\\roadhog\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\roadhog\\source\\repos\\valchecker\\obj\\",
+      "outputPath": "C:\\Users\\roadhog\\source\\repos\\valchecker-4.0-private-beta\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\roadhog\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0"
+        "net6.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
           "projectReferences": {}
         }
       },
@@ -2785,8 +2785,8 @@
       }
     },
     "frameworks": {
-      "net6.0": {
-        "targetAlias": "net6.0",
+      "net6.0-windows7.0": {
+        "targetAlias": "net6.0-windows",
         "dependencies": {
           "Newtonsoft.Json": {
             "target": "Package",
@@ -2807,6 +2807,9 @@
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"

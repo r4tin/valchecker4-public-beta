@@ -11,6 +11,15 @@ using System.Reflection.Metadata;
 
 namespace valchecker
 {
+    public static class skinsjsonloader
+    {
+        public static skinsjson.main skins;
+        public static void load()
+        {
+            skins = Newtonsoft.Json.JsonConvert.DeserializeObject<skinsjson.main>(File.ReadAllText("C:\\Users\\roadhog\\source\\repos\\" +
+                "valchecker-4.0-private-beta\\assets\\skins.json")); // change this later
+        }
+    }
     internal class someusefulshit
     {
         public static DateTimeOffset? normalize_ban(List<bantypes.mainrestrictionpart> data)
@@ -46,6 +55,7 @@ namespace valchecker
                 if (Constants.LOL2REG.TryGetValue(data.region.id, out fixedregion)) { }
                 else if(Constants.A2TOA3.TryGetValue(data.region.id, out string cou3))
                 {
+                    Console.WriteLine("uuu");
                     fixedregion = Constants.COU2REG[cou3];   
                 }
                 else
