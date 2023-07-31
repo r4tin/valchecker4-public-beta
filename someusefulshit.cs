@@ -51,6 +51,12 @@ namespace valchecker
             string country;
             try
             {
+                if(data.region == null)
+                {
+                    account.region = null;
+                    account.lvl = null;
+                    return;
+                }
                 country = data.country.ToUpper();
                 if (Constants.LOL2REG.TryGetValue(data.region.id, out fixedregion)) { }
                 else if(Constants.A2TOA3.TryGetValue(data.region.id, out string cou3))

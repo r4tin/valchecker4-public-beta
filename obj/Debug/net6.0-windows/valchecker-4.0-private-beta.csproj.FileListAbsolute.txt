@@ -5,7 +5,6 @@ C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\bin\Debug\net6.0-windo
 C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\bin\Debug\net6.0-windows\valchecker-4.0-private-beta.pdb
 C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Debug\net6.0-windows\valchecker-4.0-private-beta.csproj.AssemblyReference.cache
-C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Debug\net6.0-windows\valchecker_4._0_private_beta.Form1.resources
 C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Debug\net6.0-windows\valchecker-4.0-private-beta.csproj.GenerateResource.cache
 C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Debug\net6.0-windows\valchecker-4.0-private-beta.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Debug\net6.0-windows\valchecker-4.0-private-beta.AssemblyInfoInputs.cache
@@ -17,3 +16,4 @@ C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Debug\net6.0-windo
 C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Debug\net6.0-windows\valchecker-4.0-private-beta.pdb
 C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Debug\net6.0-windows\valchecker-4.0-private-beta.genruntimeconfig.cache
 C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Debug\net6.0-windows\ref\valchecker-4.0-private-beta.dll
+C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Debug\net6.0-windows\valchecker_4._0_private_beta.Form1.resources
