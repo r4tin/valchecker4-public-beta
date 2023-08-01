@@ -31,6 +31,17 @@ namespace valchecker_4._0_private_beta
             labelsDictionary.Add("krlbl", krlbl);
             labelsDictionary.Add("brlbl", brlbl);
             labelsDictionary.Add("latamlbl", latamlbl);
+
+            labelsDictionary.Add("unlbl", unlbl);
+            labelsDictionary.Add("irlbl", irlbl);
+            labelsDictionary.Add("brolbl", brolbl);
+            labelsDictionary.Add("silbl", silbl);
+            labelsDictionary.Add("golbl", golbl);
+            labelsDictionary.Add("pllbl", pllbl);
+            labelsDictionary.Add("dilbl", dilbl);
+            labelsDictionary.Add("imlbl", imlbl);
+            labelsDictionary.Add("ralbl", ralbl);
+            labelsDictionary.Add("lolbl", lolbl);
         }
 
         private void validlabel_Click(object sender, EventArgs e)

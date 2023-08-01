@@ -32,6 +32,7 @@ namespace valchecker
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", account.token);
                 client.DefaultRequestHeaders.Add("X-Riot-ClientVersion", "release-05.12-shipping-21-808353");
                 client.DefaultRequestHeaders.Add("X-Riot-ClientPlatform", Constants.CLIENTPLATFORM);
+                Console.WriteLine($"https://pd.{region}.a.pvp.net/mmr/v1/players/{account.puuid}/competitiveupdates");
                 var response = await client.GetAsync($"https://pd.{region}.a.pvp.net/mmr/v1/players/{account.puuid}/competitiveupdates");
                 var responsetext = await response.Content.ReadAsStringAsync();
                 var responsejson = Newtonsoft.Json.JsonConvert.DeserializeObject<rankedrequest.main>(responsetext);
@@ -46,7 +47,7 @@ namespace valchecker
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("getrank: "+ex.Message);
             }
         }
         async public static Task get_lastplayed(Account account)
@@ -80,7 +81,12 @@ namespace valchecker
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                if (account.lastplayed == null)
+                {
+                    account.lastplayed = new DateTimeOffset();
+                    return;
+                }
+                Console.WriteLine("getlp: " + ex.Message);
             }
         }
         async public static Task get_balance(Account account)

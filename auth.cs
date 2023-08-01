@@ -229,7 +229,7 @@ public class RiotClient
             response = await client.PostAsync(Constants.USERINFO_URL, content);
 
             responseContent = await response.Content.ReadAsStringAsync();
-            //Console.WriteLine(responseContent);
+            Console.WriteLine(responseContent);
 
             var userinfodata = Newtonsoft.Json.JsonConvert.DeserializeObject<userinfojson.ApiResponse>(responseContent);
             var banlist = userinfodata.ban.restrictions;

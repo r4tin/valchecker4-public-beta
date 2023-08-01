@@ -8,9 +8,22 @@ using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using System.Reflection.Metadata;
+using valchecker_4._0_private_beta;
 
 namespace valchecker
 {
+    public static class proxysystem
+    {
+        private static int num = 0;
+        public static string? get_proxy()
+        {
+            if (vars.proxylist.Count == 0) return null;
+            string proxy = vars.proxylist[num];
+            num++;
+            if (num == vars.proxylist.Count) num = 0;
+            return proxy;
+        }
+    }
     public static class skinsjsonloader
     {
         public static skinsjson.main skins;
@@ -51,23 +64,18 @@ namespace valchecker
             string country;
             try
             {
-                if(data.region == null)
-                {
-                    account.region = null;
-                    account.lvl = null;
-                    return;
-                }
                 country = data.country.ToUpper();
-                if (Constants.LOL2REG.TryGetValue(data.region.id, out fixedregion)) { }
-                else if(Constants.A2TOA3.TryGetValue(data.region.id, out string cou3))
+                if (data.region != null && Constants.LOL2REG.TryGetValue(data.region.id, out fixedregion)) { Console.WriteLine($"yeee- {data.region.id}"); }
+                else if(data.country != null)
                 {
                     Console.WriteLine("uuu");
-                    fixedregion = Constants.COU2REG[cou3];   
+                    fixedregion = Constants.COU2REG[Constants.A2TOA3[data.country.ToUpper()]];   
                 }
                 else
                 {
                     account.region = null;
                     account.lvl = null;
+                    Console.WriteLine("FUCKYOU");
                     return;
                 }
                 fixedregion = fixedregion.ToLower();

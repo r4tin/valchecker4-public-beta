@@ -102,18 +102,18 @@ public static class mainProgram
         RiotClient client;
         Account account;
         client = new RiotClient();
-        account = await client.AuthAsync(line.Trim());
+        account = await client.AuthAsync(line.Trim(), proxy:proxysystem.get_proxy());
         Console.WriteLine(account.errmsg != null ? account.errmsg : account.code);
         if (account.code == 1) { Console.WriteLine("rliomktjids"); }
-        if(account.code == 0)
+        if(account.code == 0 && account.region != null)
         {
             await accountinfo.get_rank(account);
             await accountinfo.get_lastplayed(account);
             await accountinfo.get_balance(account);
             await accountinfo.get_skins(account);
             await accountsinfodb.updateinfo(account);
+            Console.WriteLine(account.ToString());
         }
-        //Console.WriteLine(account.ToString());
         TextChangeHandler.RaiseTextChangeEvent($"Checked: {++accountsinfodb.checkednum}/" +
                         $"{accountsinfodb.totalnum}", "checkedlabel");
 
@@ -121,6 +121,12 @@ public static class mainProgram
         else if (account.code == 4)
         {
             TextChangeHandler.RaiseTextChangeEvent($"Banned: {++accountsinfodb.banned}", "bannedlabel");
+            return;
+        }
+        else if (account.code == 3)
+        {
+            TextChangeHandler.RaiseTextChangeEvent($"Retries: {++accountsinfodb.retries}", "retrieslbl");
+            await checkaccount(line);
             return;
         }
         if (account.code == 0 && account.banuntil != null)
@@ -131,5 +137,8 @@ public static class mainProgram
         if (account.region == null) { return; }
         TextChangeHandler.RaiseTextChangeEvent($"{account.region.ToUpper()}: {accountsinfodb.regions[account.region]}",
             $"{account.region}lbl");
+        string regtochange = account.rank.Contains("Bronze") ? "bro" : account.rank.ToLower().Substring(0, 2);
+        TextChangeHandler.RaiseTextChangeEvent($"{account.rank.Split(" ")[0]}: {accountsinfodb.ranks[account.rank.ToLower().Split(" ")[0]]}",
+            $"{regtochange}lbl");
     }
 }

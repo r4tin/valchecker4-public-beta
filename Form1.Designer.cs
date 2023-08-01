@@ -29,12 +29,20 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            latamlbl = new Label();
-            krlbl = new Label();
-            brlbl = new Label();
-            aplbl = new Label();
-            nalbl = new Label();
+            panel4 = new Panel();
+            unlbl = new Label();
+            pllbl = new Label();
+            irlbl = new Label();
+            golbl = new Label();
+            brolbl = new Label();
+            silbl = new Label();
+            panel3 = new Panel();
             eulbl = new Label();
+            latamlbl = new Label();
+            nalbl = new Label();
+            krlbl = new Label();
+            aplbl = new Label();
+            brlbl = new Label();
             falbl = new Label();
             wskinslbl = new Label();
             retrieslbl = new Label();
@@ -54,7 +62,13 @@
             loadproxybtn = new Button();
             loadaccbtn = new Button();
             progressBar1 = new ProgressBar();
+            dilbl = new Label();
+            imlbl = new Label();
+            ralbl = new Label();
+            lolbl = new Label();
             panel1.SuspendLayout();
+            panel4.SuspendLayout();
+            panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -62,12 +76,8 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDark;
-            panel1.Controls.Add(latamlbl);
-            panel1.Controls.Add(krlbl);
-            panel1.Controls.Add(brlbl);
-            panel1.Controls.Add(aplbl);
-            panel1.Controls.Add(nalbl);
-            panel1.Controls.Add(eulbl);
+            panel1.Controls.Add(panel4);
+            panel1.Controls.Add(panel3);
             panel1.Controls.Add(falbl);
             panel1.Controls.Add(wskinslbl);
             panel1.Controls.Add(retrieslbl);
@@ -82,65 +92,155 @@
             panel1.Size = new Size(678, 270);
             panel1.TabIndex = 0;
             // 
-            // latamlbl
+            // panel4
             // 
-            latamlbl.AutoSize = true;
-            latamlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            latamlbl.Location = new Point(180, 145);
-            latamlbl.Name = "latamlbl";
-            latamlbl.Size = new Size(66, 17);
-            latamlbl.TabIndex = 14;
-            latamlbl.Text = "LATAM: 0";
+            panel4.Controls.Add(lolbl);
+            panel4.Controls.Add(ralbl);
+            panel4.Controls.Add(imlbl);
+            panel4.Controls.Add(dilbl);
+            panel4.Controls.Add(unlbl);
+            panel4.Controls.Add(pllbl);
+            panel4.Controls.Add(irlbl);
+            panel4.Controls.Add(golbl);
+            panel4.Controls.Add(brolbl);
+            panel4.Controls.Add(silbl);
+            panel4.Location = new Point(269, 41);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(112, 185);
+            panel4.TabIndex = 16;
             // 
-            // krlbl
+            // unlbl
             // 
-            krlbl.AutoSize = true;
-            krlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            krlbl.Location = new Point(180, 128);
-            krlbl.Name = "krlbl";
-            krlbl.Size = new Size(39, 17);
-            krlbl.TabIndex = 13;
-            krlbl.Text = "KR: 0";
+            unlbl.AutoSize = true;
+            unlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            unlbl.Location = new Point(3, 0);
+            unlbl.Name = "unlbl";
+            unlbl.Size = new Size(82, 17);
+            unlbl.TabIndex = 9;
+            unlbl.Text = "Unranked: 0";
             // 
-            // brlbl
+            // pllbl
             // 
-            brlbl.AutoSize = true;
-            brlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            brlbl.Location = new Point(180, 111);
-            brlbl.Name = "brlbl";
-            brlbl.Size = new Size(39, 17);
-            brlbl.TabIndex = 12;
-            brlbl.Text = "BR: 0";
+            pllbl.AutoSize = true;
+            pllbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            pllbl.Location = new Point(3, 85);
+            pllbl.Name = "pllbl";
+            pllbl.Size = new Size(79, 17);
+            pllbl.TabIndex = 14;
+            pllbl.Text = "Platinum: 0";
             // 
-            // aplbl
+            // irlbl
             // 
-            aplbl.AutoSize = true;
-            aplbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            aplbl.Location = new Point(180, 94);
-            aplbl.Name = "aplbl";
-            aplbl.Size = new Size(40, 17);
-            aplbl.TabIndex = 11;
-            aplbl.Text = "AP: 0";
+            irlbl.AutoSize = true;
+            irlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            irlbl.Location = new Point(3, 17);
+            irlbl.Name = "irlbl";
+            irlbl.Size = new Size(48, 17);
+            irlbl.TabIndex = 10;
+            irlbl.Text = "Iron: 0";
             // 
-            // nalbl
+            // golbl
             // 
-            nalbl.AutoSize = true;
-            nalbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            nalbl.Location = new Point(180, 77);
-            nalbl.Name = "nalbl";
-            nalbl.Size = new Size(42, 17);
-            nalbl.TabIndex = 10;
-            nalbl.Text = "NA: 0";
+            golbl.AutoSize = true;
+            golbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            golbl.Location = new Point(3, 68);
+            golbl.Name = "golbl";
+            golbl.Size = new Size(52, 17);
+            golbl.TabIndex = 13;
+            golbl.Text = "Gold: 0";
+            // 
+            // brolbl
+            // 
+            brolbl.AutoSize = true;
+            brolbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            brolbl.Location = new Point(3, 34);
+            brolbl.Name = "brolbl";
+            brolbl.Size = new Size(65, 17);
+            brolbl.TabIndex = 11;
+            brolbl.Text = "Bronze: 0";
+            // 
+            // silbl
+            // 
+            silbl.AutoSize = true;
+            silbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            silbl.Location = new Point(3, 51);
+            silbl.Name = "silbl";
+            silbl.Size = new Size(58, 17);
+            silbl.TabIndex = 12;
+            silbl.Text = "Silver: 0";
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(eulbl);
+            panel3.Controls.Add(latamlbl);
+            panel3.Controls.Add(nalbl);
+            panel3.Controls.Add(krlbl);
+            panel3.Controls.Add(aplbl);
+            panel3.Controls.Add(brlbl);
+            panel3.Location = new Point(160, 41);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(76, 114);
+            panel3.TabIndex = 15;
             // 
             // eulbl
             // 
             eulbl.AutoSize = true;
             eulbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            eulbl.Location = new Point(180, 60);
+            eulbl.Location = new Point(3, 0);
             eulbl.Name = "eulbl";
             eulbl.Size = new Size(39, 17);
             eulbl.TabIndex = 9;
             eulbl.Text = "EU: 0";
+            // 
+            // latamlbl
+            // 
+            latamlbl.AutoSize = true;
+            latamlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            latamlbl.Location = new Point(3, 85);
+            latamlbl.Name = "latamlbl";
+            latamlbl.Size = new Size(66, 17);
+            latamlbl.TabIndex = 14;
+            latamlbl.Text = "LATAM: 0";
+            // 
+            // nalbl
+            // 
+            nalbl.AutoSize = true;
+            nalbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            nalbl.Location = new Point(3, 17);
+            nalbl.Name = "nalbl";
+            nalbl.Size = new Size(42, 17);
+            nalbl.TabIndex = 10;
+            nalbl.Text = "NA: 0";
+            // 
+            // krlbl
+            // 
+            krlbl.AutoSize = true;
+            krlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            krlbl.Location = new Point(3, 68);
+            krlbl.Name = "krlbl";
+            krlbl.Size = new Size(39, 17);
+            krlbl.TabIndex = 13;
+            krlbl.Text = "KR: 0";
+            // 
+            // aplbl
+            // 
+            aplbl.AutoSize = true;
+            aplbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            aplbl.Location = new Point(3, 34);
+            aplbl.Name = "aplbl";
+            aplbl.Size = new Size(40, 17);
+            aplbl.TabIndex = 11;
+            aplbl.Text = "AP: 0";
+            // 
+            // brlbl
+            // 
+            brlbl.AutoSize = true;
+            brlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            brlbl.Location = new Point(3, 51);
+            brlbl.Name = "brlbl";
+            brlbl.Size = new Size(39, 17);
+            brlbl.TabIndex = 12;
+            brlbl.Text = "BR: 0";
             // 
             // falbl
             // 
@@ -349,6 +449,46 @@
             progressBar1.Size = new Size(678, 23);
             progressBar1.TabIndex = 7;
             // 
+            // dilbl
+            // 
+            dilbl.AutoSize = true;
+            dilbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dilbl.Location = new Point(3, 102);
+            dilbl.Name = "dilbl";
+            dilbl.Size = new Size(80, 17);
+            dilbl.TabIndex = 15;
+            dilbl.Text = "Diamond: 0";
+            // 
+            // imlbl
+            // 
+            imlbl.AutoSize = true;
+            imlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            imlbl.Location = new Point(3, 119);
+            imlbl.Name = "imlbl";
+            imlbl.Size = new Size(80, 17);
+            imlbl.TabIndex = 16;
+            imlbl.Text = "Immortal: 0";
+            // 
+            // ralbl
+            // 
+            ralbl.AutoSize = true;
+            ralbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            ralbl.Location = new Point(3, 136);
+            ralbl.Name = "ralbl";
+            ralbl.Size = new Size(70, 17);
+            ralbl.TabIndex = 17;
+            ralbl.Text = "Radiant: 0";
+            // 
+            // lolbl
+            // 
+            lolbl.AutoSize = true;
+            lolbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lolbl.Location = new Point(3, 153);
+            lolbl.Name = "lolbl";
+            lolbl.Size = new Size(66, 17);
+            lolbl.TabIndex = 18;
+            lolbl.Text = "Locked: 0";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -362,6 +502,10 @@
             Text = "ValChecker v4.0 beta";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -396,5 +540,17 @@
         public Label aplbl;
         public Label nalbl;
         private ProgressBar progressBar1;
+        private Panel panel4;
+        public Label unlbl;
+        public Label pllbl;
+        public Label irlbl;
+        public Label golbl;
+        public Label brolbl;
+        public Label silbl;
+        private Panel panel3;
+        public Label lolbl;
+        public Label ralbl;
+        public Label imlbl;
+        public Label dilbl;
     }
 }
