@@ -30,6 +30,10 @@
         {
             panel1 = new Panel();
             panel4 = new Panel();
+            lolbl = new Label();
+            ralbl = new Label();
+            imlbl = new Label();
+            dilbl = new Label();
             unlbl = new Label();
             pllbl = new Label();
             irlbl = new Label();
@@ -57,15 +61,12 @@
             morethreadscb = new CheckBox();
             threadslbl = new Label();
             panel2 = new Panel();
+            imretardedcb = new CheckBox();
             proxyloadedlbl = new Label();
             linesloadedlbl = new Label();
             loadproxybtn = new Button();
             loadaccbtn = new Button();
             progressBar1 = new ProgressBar();
-            dilbl = new Label();
-            imlbl = new Label();
-            ralbl = new Label();
-            lolbl = new Label();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -108,6 +109,46 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(112, 185);
             panel4.TabIndex = 16;
+            // 
+            // lolbl
+            // 
+            lolbl.AutoSize = true;
+            lolbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lolbl.Location = new Point(3, 153);
+            lolbl.Name = "lolbl";
+            lolbl.Size = new Size(66, 17);
+            lolbl.TabIndex = 18;
+            lolbl.Text = "Locked: 0";
+            // 
+            // ralbl
+            // 
+            ralbl.AutoSize = true;
+            ralbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            ralbl.Location = new Point(3, 136);
+            ralbl.Name = "ralbl";
+            ralbl.Size = new Size(70, 17);
+            ralbl.TabIndex = 17;
+            ralbl.Text = "Radiant: 0";
+            // 
+            // imlbl
+            // 
+            imlbl.AutoSize = true;
+            imlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            imlbl.Location = new Point(3, 119);
+            imlbl.Name = "imlbl";
+            imlbl.Size = new Size(80, 17);
+            imlbl.TabIndex = 16;
+            imlbl.Text = "Immortal: 0";
+            // 
+            // dilbl
+            // 
+            dilbl.AutoSize = true;
+            dilbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            dilbl.Location = new Point(3, 102);
+            dilbl.Name = "dilbl";
+            dilbl.Size = new Size(80, 17);
+            dilbl.TabIndex = 15;
+            dilbl.Text = "Diamond: 0";
             // 
             // unlbl
             // 
@@ -392,6 +433,7 @@
             // panel2
             // 
             panel2.BackColor = Color.Gray;
+            panel2.Controls.Add(imretardedcb);
             panel2.Controls.Add(proxyloadedlbl);
             panel2.Controls.Add(morethreadscb);
             panel2.Controls.Add(threadslbl);
@@ -403,6 +445,21 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(165, 415);
             panel2.TabIndex = 6;
+            // 
+            // imretardedcb
+            // 
+            imretardedcb.AutoSize = true;
+            imretardedcb.Enabled = false;
+            imretardedcb.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            imretardedcb.ForeColor = Color.Black;
+            imretardedcb.Location = new Point(13, 265);
+            imretardedcb.Name = "imretardedcb";
+            imretardedcb.Size = new Size(111, 21);
+            imretardedcb.TabIndex = 11;
+            imretardedcb.Text = "I'M RETARDED";
+            imretardedcb.UseVisualStyleBackColor = true;
+            imretardedcb.Visible = false;
+            imretardedcb.CheckedChanged += imretardedcb_CheckedChanged;
             // 
             // proxyloadedlbl
             // 
@@ -449,46 +506,6 @@
             progressBar1.Size = new Size(678, 23);
             progressBar1.TabIndex = 7;
             // 
-            // dilbl
-            // 
-            dilbl.AutoSize = true;
-            dilbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            dilbl.Location = new Point(3, 102);
-            dilbl.Name = "dilbl";
-            dilbl.Size = new Size(80, 17);
-            dilbl.TabIndex = 15;
-            dilbl.Text = "Diamond: 0";
-            // 
-            // imlbl
-            // 
-            imlbl.AutoSize = true;
-            imlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            imlbl.Location = new Point(3, 119);
-            imlbl.Name = "imlbl";
-            imlbl.Size = new Size(80, 17);
-            imlbl.TabIndex = 16;
-            imlbl.Text = "Immortal: 0";
-            // 
-            // ralbl
-            // 
-            ralbl.AutoSize = true;
-            ralbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            ralbl.Location = new Point(3, 136);
-            ralbl.Name = "ralbl";
-            ralbl.Size = new Size(70, 17);
-            ralbl.TabIndex = 17;
-            ralbl.Text = "Radiant: 0";
-            // 
-            // lolbl
-            // 
-            lolbl.AutoSize = true;
-            lolbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lolbl.Location = new Point(3, 153);
-            lolbl.Name = "lolbl";
-            lolbl.Size = new Size(66, 17);
-            lolbl.TabIndex = 18;
-            lolbl.Text = "Locked: 0";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -498,8 +515,9 @@
             Controls.Add(panel2);
             Controls.Add(button1);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form1";
-            Text = "ValChecker v4.0 beta";
+            Text = "ValChecker v4.0 beta by liljaba1337";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel4.ResumeLayout(false);
@@ -552,5 +570,6 @@
         public Label ralbl;
         public Label imlbl;
         public Label dilbl;
+        private CheckBox imretardedcb;
     }
 }

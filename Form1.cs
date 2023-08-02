@@ -80,6 +80,12 @@ namespace valchecker_4._0_private_beta
                 morethreadscb.Visible = true;
                 morethreadscb.Enabled = true;
             }
+            else if (trackBar1.Value == 1000 && !imretardedcb.Enabled)
+            {
+                trackBar1.Value = 1000;
+                imretardedcb.Visible = true;
+                imretardedcb.Enabled = true;
+            }
         }
 
         private void morethreadscb_CheckedChanged(object sender, EventArgs e)
@@ -130,6 +136,20 @@ namespace valchecker_4._0_private_beta
                     vars.proxylist = sr.ReadToEnd().Split("\n").ToList();
                 }
                 proxyloadedlbl.Text = $"Proxy loaded: {vars.proxylist.Count}";
+            }
+        }
+
+        private void imretardedcb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (imretardedcb.Checked)
+            {
+                trackBar1.Maximum = 1000000;
+            }
+            else
+            {
+                trackBar1.Maximum = 50;
+                trackBar1.Value = 25;
+                threadslbl.Text = $"THREADS: {trackBar1.Value}";
             }
         }
     }

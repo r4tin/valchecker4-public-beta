@@ -102,7 +102,17 @@ public static class mainProgram
         RiotClient client;
         Account account;
         client = new RiotClient();
-        account = await client.AuthAsync(line.Trim(), proxy:proxysystem.get_proxy());
+        while (true)
+        {
+            account = await client.AuthAsync(line.Trim(), proxy: proxysystem.get_proxy());
+            if(account.code == 2 || account.code == 6)
+            {
+                TextChangeHandler.RaiseTextChangeEvent($"Retries: {++accountsinfodb.retries}", "retrieslbl");
+                continue;
+            }
+            break;
+
+        }
         Console.WriteLine(account.errmsg != null ? account.errmsg : account.code);
         if (account.code == 1) { Console.WriteLine("rliomktjids"); }
         if(account.code == 0 && account.region != null)
