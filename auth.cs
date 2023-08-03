@@ -106,6 +106,7 @@ public class RiotClient
                 handler.UseProxy = true;
             }
             HttpClient client = new HttpClient(handler);
+            client.Timeout = TimeSpan.FromSeconds(10);
             client.DefaultRequestHeaders.AcceptLanguage.TryParseAdd("en-US,en;q=0.9");
             client.DefaultRequestHeaders.Accept.TryParseAdd("application/json, text/plain, */*");
             client.DefaultRequestHeaders.UserAgent.TryParseAdd($"RiotClient/{Constants.USERAGENT} (Windows;10;;Professional, x64)");
@@ -250,6 +251,11 @@ public class RiotClient
             account.registerdate = creationdate_patched;
 
             await someusefulshit.get_region(account, userinfodata);
+            return account;
+        }
+        catch (WebException ex)
+        {
+            account.code = 3;
             return account;
         }
         catch (Exception e)

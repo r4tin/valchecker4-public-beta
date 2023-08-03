@@ -29,12 +29,12 @@ namespace valchecker
         public static skinsjson.main skins;
         public static void load()
         {
-            skins = Newtonsoft.Json.JsonConvert.DeserializeObject<skinsjson.main>(File.ReadAllText("C:\\Users\\roadhog\\source\\repos\\" +
-                "valchecker-4.0-private-beta\\assets\\skins.json")); // change this later
+            skins = Newtonsoft.Json.JsonConvert.DeserializeObject<skinsjson.main>(File.ReadAllText("assets\\skins.json")); // change this later
         }
     }
     internal class someusefulshit
     {
+        public static string foldername;
         public static DateTimeOffset? normalize_ban(List<bantypes.mainrestrictionpart> data)
         {
             if (data.Count == 0) return null;
@@ -109,6 +109,22 @@ namespace valchecker
         public static DateTimeOffset normalizemillis(long millisec)
         {
             return DateTimeOffset.FromUnixTimeMilliseconds(millisec);
+        }
+        
+        public static async Task load_assets()
+        {
+            if (!Directory.Exists("assets")) { Directory.CreateDirectory("assets"); }
+            HttpClientHandler handler = new HttpClientHandler();
+            HttpClient client = new HttpClient(handler);
+            var response = await client.GetAsync("https://valorant-api.com/v1/weapons/skins/");
+            File.WriteAllText("assets\\skins.json", await response.Content.ReadAsStringAsync());
+
+            someusefulshit.foldername = DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss");
+        }
+
+        public static string multiply(string input, int count)
+        {
+            return new string(input.ToCharArray().SelectMany(c => Enumerable.Repeat(c, count)).ToArray());
         }
     }
 }

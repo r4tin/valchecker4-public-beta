@@ -67,16 +67,25 @@
             loadproxybtn = new Button();
             loadaccbtn = new Button();
             progressBar1 = new ProgressBar();
+            panel5 = new Panel();
+            onetotenlbl = new Label();
+            ahundredpluslbl = new Label();
+            tentotwentylbl = new Label();
+            sixtyfivetoahundredlbl = new Label();
+            twentytofortyfivelbl = new Label();
+            fortyfivetosixtyfivelbl = new Label();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             panel2.SuspendLayout();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDark;
+            panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(falbl);
@@ -87,7 +96,6 @@
             panel1.Controls.Add(tempbannedlbl);
             panel1.Controls.Add(bannedlabel);
             panel1.Controls.Add(validlabel);
-            panel1.Controls.Add(checkedlabel);
             panel1.Location = new Point(209, 18);
             panel1.Name = "panel1";
             panel1.Size = new Size(678, 270);
@@ -379,7 +387,7 @@
             // 
             checkedlabel.AutoSize = true;
             checkedlabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            checkedlabel.Location = new Point(16, 9);
+            checkedlabel.Location = new Point(490, 384);
             checkedlabel.Name = "checkedlabel";
             checkedlabel.Size = new Size(87, 17);
             checkedlabel.TabIndex = 0;
@@ -506,6 +514,79 @@
             progressBar1.Size = new Size(678, 23);
             progressBar1.TabIndex = 7;
             // 
+            // panel5
+            // 
+            panel5.Controls.Add(onetotenlbl);
+            panel5.Controls.Add(ahundredpluslbl);
+            panel5.Controls.Add(tentotwentylbl);
+            panel5.Controls.Add(sixtyfivetoahundredlbl);
+            panel5.Controls.Add(twentytofortyfivelbl);
+            panel5.Controls.Add(fortyfivetosixtyfivelbl);
+            panel5.Location = new Point(439, 46);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(76, 114);
+            panel5.TabIndex = 16;
+            // 
+            // onetotenlbl
+            // 
+            onetotenlbl.AutoSize = true;
+            onetotenlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            onetotenlbl.Location = new Point(3, 0);
+            onetotenlbl.Name = "onetotenlbl";
+            onetotenlbl.Size = new Size(49, 17);
+            onetotenlbl.TabIndex = 9;
+            onetotenlbl.Text = "1-10: 0";
+            // 
+            // ahundredpluslbl
+            // 
+            ahundredpluslbl.AutoSize = true;
+            ahundredpluslbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            ahundredpluslbl.Location = new Point(3, 85);
+            ahundredpluslbl.Name = "ahundredpluslbl";
+            ahundredpluslbl.Size = new Size(53, 17);
+            ahundredpluslbl.TabIndex = 14;
+            ahundredpluslbl.Text = "100+: 0";
+            // 
+            // tentotwentylbl
+            // 
+            tentotwentylbl.AutoSize = true;
+            tentotwentylbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            tentotwentylbl.Location = new Point(3, 17);
+            tentotwentylbl.Name = "tentotwentylbl";
+            tentotwentylbl.Size = new Size(56, 17);
+            tentotwentylbl.TabIndex = 10;
+            tentotwentylbl.Text = "10-20: 0";
+            // 
+            // sixtyfivetoahundredlbl
+            // 
+            sixtyfivetoahundredlbl.AutoSize = true;
+            sixtyfivetoahundredlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            sixtyfivetoahundredlbl.Location = new Point(3, 68);
+            sixtyfivetoahundredlbl.Name = "sixtyfivetoahundredlbl";
+            sixtyfivetoahundredlbl.Size = new Size(63, 17);
+            sixtyfivetoahundredlbl.TabIndex = 13;
+            sixtyfivetoahundredlbl.Text = "65-100: 0";
+            // 
+            // twentytofortyfivelbl
+            // 
+            twentytofortyfivelbl.AutoSize = true;
+            twentytofortyfivelbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            twentytofortyfivelbl.Location = new Point(3, 34);
+            twentytofortyfivelbl.Name = "twentytofortyfivelbl";
+            twentytofortyfivelbl.Size = new Size(56, 17);
+            twentytofortyfivelbl.TabIndex = 11;
+            twentytofortyfivelbl.Text = "20-45: 0";
+            // 
+            // fortyfivetosixtyfivelbl
+            // 
+            fortyfivetosixtyfivelbl.AutoSize = true;
+            fortyfivetosixtyfivelbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            fortyfivetosixtyfivelbl.Location = new Point(3, 51);
+            fortyfivetosixtyfivelbl.Name = "fortyfivetosixtyfivelbl";
+            fortyfivetosixtyfivelbl.Size = new Size(56, 17);
+            fortyfivetosixtyfivelbl.TabIndex = 12;
+            fortyfivetosixtyfivelbl.Text = "45-65: 0";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -515,6 +596,7 @@
             Controls.Add(panel2);
             Controls.Add(button1);
             Controls.Add(panel1);
+            Controls.Add(checkedlabel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form1";
             Text = "ValChecker v4.0 beta by liljaba1337";
@@ -527,7 +609,10 @@
             ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -571,5 +656,12 @@
         public Label imlbl;
         public Label dilbl;
         private CheckBox imretardedcb;
+        private Panel panel5;
+        public Label onetotenlbl;
+        public Label ahundredpluslbl;
+        public Label tentotwentylbl;
+        public Label sixtyfivetoahundredlbl;
+        public Label twentytofortyfivelbl;
+        public Label fortyfivetosixtyfivelbl;
     }
 }
