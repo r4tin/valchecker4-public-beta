@@ -71,7 +71,7 @@ namespace valchecker_4._0_private_beta
         {
             loadaccbtn.Enabled = false;
             loadproxybtn.Enabled = false;
-            button1.Enabled = false;
+            startcheckingbtn.Enabled = false;
             trackBar1.Enabled = false;
             morethreadscb.Enabled = false;
             await mainProgram.Main();
@@ -158,6 +158,11 @@ namespace valchecker_4._0_private_beta
                 trackBar1.Value = 25;
                 threadslbl.Text = $"THREADS: {trackBar1.Value}";
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
     public static class vars
