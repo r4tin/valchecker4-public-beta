@@ -183,8 +183,11 @@ public static class mainProgram
         client = new RiotClient();
         while (true)
         {
-            account = await client.AuthAsync(line.Trim(), proxy: proxysystem.get_proxy());
-            if(account.code == 2 || account.code == 6 || account.code == 3 || account.code == 1)
+            var proxy = await proxysystem.get_proxy();
+            account = await client.AuthAsync(line.Trim(), proxy);
+            Console.WriteLine(account.errmsg);
+            //Console.ReadLine();
+            if (account.code == 2 || account.code == 6 || account.code == 3 || account.code == 1)
             {
                 TextChangeHandler.RaiseTextChangeEvent($"Retries: {++accountsinfodb.retries}", "retrieslbl");
                 continue;

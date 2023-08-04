@@ -85,7 +85,7 @@ public class RiotClient
 
         return null; // Return null if the pattern is not matched
     }
-    public async Task<Account> AuthAsync(string? logpass = null, string? username = null, string? password = null, string? proxy = null)
+    public async Task<Account> AuthAsync(string logpass, proxy? proxy = null)
     {
         Account account = new Account();
         try
@@ -100,10 +100,12 @@ public class RiotClient
             };
 
             HttpClientHandler handler = new HttpClientHandler();
-            if (!string.IsNullOrEmpty(proxy))
+            if (proxy != null)
             {
-                handler.Proxy = new WebProxy(proxy);
+                Console.WriteLine($"{proxy.ip}:{proxy.port}");
+                handler.Proxy = new WebProxy($"{proxy.ip}:{proxy.port}");
                 handler.UseProxy = true;
+                if (proxy.login != null) handler.Credentials = new NetworkCredential(proxy.login, proxy.password);
             }
             HttpClient client = new HttpClient(handler);
             client.Timeout = TimeSpan.FromSeconds(10);
@@ -111,11 +113,8 @@ public class RiotClient
             client.DefaultRequestHeaders.Accept.TryParseAdd("application/json, text/plain, */*");
             client.DefaultRequestHeaders.UserAgent.TryParseAdd($"RiotClient/{Constants.USERAGENT} (Windows;10;;Professional, x64)");
 
-            if (string.IsNullOrEmpty(username))
-            {
-                username = logpass.Split(':')[0].Trim();
-                password = logpass.Split(':')[1].Trim();
-            }
+            string username = logpass.Split(':')[0].Trim();
+            string password = logpass.Split(':')[1].Trim();
 
             Dictionary<string, string> data = new Dictionary<string, string>
             {

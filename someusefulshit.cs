@@ -12,16 +12,42 @@ using valchecker_4._0_private_beta;
 
 namespace valchecker
 {
+    public class proxy
+    {
+        public string ip { get; set; }
+        public string port { get; set; }
+        public string? login { get; set; }
+        public string? password { get; set; }
+    }
     public static class proxysystem
     {
         private static int num = 0;
-        public static string? get_proxy()
+        public static async Task<proxy?> get_proxy()
         {
             if (vars.proxylist.Count == 0) return null;
-            string proxy = vars.proxylist[num];
-            num++;
+            string proxy = vars.proxylist[num++];
             if (num == vars.proxylist.Count) num = 0;
-            return proxy;
+            var _proxy = new proxy();
+            if (proxy.Contains(":"))
+            {
+                _proxy.ip = proxy.Split(":")[0];
+                _proxy.port = proxy.Split(":")[1];
+                _proxy.login = null;
+                _proxy.password = null;
+                if (proxy.Contains("@"))
+                    {
+                        if (proxy.Split("@")[1].Contains(":"))
+                        {
+                            _proxy.login = proxy.Split("@")[1].Split(":")[0];
+                            _proxy.password = proxy.Split("@")[1].Split(":")[1];
+                        }
+                    }
+            }
+            else
+            {
+                return null;
+            }
+            return _proxy;
         }
     }
     public static class skinsjsonloader
@@ -32,7 +58,7 @@ namespace valchecker
             skins = Newtonsoft.Json.JsonConvert.DeserializeObject<skinsjson.main>(File.ReadAllText("assets\\skins.json")); // change this later
         }
     }
-    internal class someusefulshit
+    public static class someusefulshit
     {
         public static string foldername;
         public static DateTimeOffset? normalize_ban(List<bantypes.mainrestrictionpart> data)
