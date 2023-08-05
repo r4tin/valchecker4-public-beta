@@ -84,7 +84,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(53, 70, 80);
+            panel1.BackColor = Color.FromArgb(247, 139, 195);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
@@ -109,7 +109,7 @@
             panel5.Controls.Add(sixtyfivetoahundredlbl);
             panel5.Controls.Add(twentytofortyfivelbl);
             panel5.Controls.Add(fortyfivetosixtyfivelbl);
-            panel5.ForeColor = Color.FromArgb(196, 197, 191);
+            panel5.ForeColor = Color.FromArgb(255, 204, 230);
             panel5.Location = new Point(439, 46);
             panel5.Name = "panel5";
             panel5.Size = new Size(76, 114);
@@ -187,7 +187,7 @@
             panel4.Controls.Add(golbl);
             panel4.Controls.Add(brolbl);
             panel4.Controls.Add(silbl);
-            panel4.ForeColor = Color.FromArgb(196, 197, 191);
+            panel4.ForeColor = Color.FromArgb(255, 204, 230);
             panel4.Location = new Point(269, 41);
             panel4.Name = "panel4";
             panel4.Size = new Size(112, 185);
@@ -301,7 +301,7 @@
             panel3.Controls.Add(krlbl);
             panel3.Controls.Add(aplbl);
             panel3.Controls.Add(brlbl);
-            panel3.ForeColor = Color.FromArgb(196, 197, 191);
+            panel3.ForeColor = Color.FromArgb(255, 204, 230);
             panel3.Location = new Point(160, 41);
             panel3.Name = "panel3";
             panel3.Size = new Size(76, 114);
@@ -372,7 +372,7 @@
             falbl.AutoSize = true;
             falbl.BackColor = Color.Transparent;
             falbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            falbl.ForeColor = Color.DarkGreen;
+            falbl.ForeColor = Color.FromArgb(255, 204, 230);
             falbl.Location = new Point(16, 138);
             falbl.Name = "falbl";
             falbl.Size = new Size(38, 17);
@@ -384,7 +384,7 @@
             wskinslbl.AutoSize = true;
             wskinslbl.BackColor = Color.Transparent;
             wskinslbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            wskinslbl.ForeColor = Color.DarkGreen;
+            wskinslbl.ForeColor = Color.FromArgb(255, 204, 230);
             wskinslbl.Location = new Point(16, 121);
             wskinslbl.Name = "wskinslbl";
             wskinslbl.Size = new Size(72, 17);
@@ -395,7 +395,7 @@
             // 
             retrieslbl.AutoSize = true;
             retrieslbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            retrieslbl.ForeColor = Color.Gold;
+            retrieslbl.ForeColor = Color.FromArgb(255, 204, 230);
             retrieslbl.Location = new Point(16, 229);
             retrieslbl.Name = "retrieslbl";
             retrieslbl.Size = new Size(65, 17);
@@ -406,7 +406,7 @@
             // 
             errlbl.AutoSize = true;
             errlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            errlbl.ForeColor = Color.Maroon;
+            errlbl.ForeColor = Color.FromArgb(255, 204, 230);
             errlbl.Location = new Point(16, 209);
             errlbl.Name = "errlbl";
             errlbl.Size = new Size(59, 17);
@@ -417,7 +417,7 @@
             // 
             rlimitslbl.AutoSize = true;
             rlimitslbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            rlimitslbl.ForeColor = Color.Maroon;
+            rlimitslbl.ForeColor = Color.FromArgb(255, 204, 230);
             rlimitslbl.Location = new Point(16, 192);
             rlimitslbl.Name = "rlimitslbl";
             rlimitslbl.Size = new Size(92, 17);
@@ -428,7 +428,7 @@
             // 
             tempbannedlbl.AutoSize = true;
             tempbannedlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            tempbannedlbl.ForeColor = Color.Gold;
+            tempbannedlbl.ForeColor = Color.FromArgb(255, 204, 230);
             tempbannedlbl.Location = new Point(16, 92);
             tempbannedlbl.Name = "tempbannedlbl";
             tempbannedlbl.Size = new Size(103, 17);
@@ -439,7 +439,7 @@
             // 
             bannedlabel.AutoSize = true;
             bannedlabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            bannedlabel.ForeColor = Color.Maroon;
+            bannedlabel.ForeColor = Color.FromArgb(255, 204, 230);
             bannedlabel.Location = new Point(16, 75);
             bannedlabel.Name = "bannedlabel";
             bannedlabel.Size = new Size(69, 17);
@@ -451,7 +451,7 @@
             validlabel.AutoSize = true;
             validlabel.BackColor = Color.Transparent;
             validlabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            validlabel.ForeColor = Color.DarkGreen;
+            validlabel.ForeColor = Color.FromArgb(255, 204, 230);
             validlabel.Location = new Point(16, 57);
             validlabel.Name = "validlabel";
             validlabel.Size = new Size(54, 17);
@@ -463,7 +463,7 @@
             // 
             checkedlabel.AutoSize = true;
             checkedlabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            checkedlabel.ForeColor = Color.FromArgb(196, 197, 191);
+            checkedlabel.ForeColor = Color.FromArgb(255, 204, 230);
             checkedlabel.Location = new Point(490, 384);
             checkedlabel.Name = "checkedlabel";
             checkedlabel.Size = new Size(87, 17);
@@ -472,10 +472,10 @@
             // 
             // startcheckingbtn
             // 
-            startcheckingbtn.BackColor = Color.FromArgb(65, 125, 149);
+            startcheckingbtn.BackColor = Color.FromArgb(242, 99, 173);
             startcheckingbtn.FlatStyle = FlatStyle.Popup;
             startcheckingbtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            startcheckingbtn.ForeColor = Color.FromArgb(196, 197, 191);
+            startcheckingbtn.ForeColor = Color.FromArgb(255, 204, 230);
             startcheckingbtn.Location = new Point(389, 312);
             startcheckingbtn.Name = "startcheckingbtn";
             startcheckingbtn.Size = new Size(188, 50);
@@ -500,7 +500,7 @@
             morethreadscb.AutoSize = true;
             morethreadscb.Enabled = false;
             morethreadscb.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            morethreadscb.ForeColor = Color.FromArgb(196, 197, 191);
+            morethreadscb.ForeColor = Color.FromArgb(255, 204, 230);
             morethreadscb.Location = new Point(13, 249);
             morethreadscb.Name = "morethreadscb";
             morethreadscb.Size = new Size(124, 21);
@@ -513,7 +513,7 @@
             // threadslbl
             // 
             threadslbl.AutoSize = true;
-            threadslbl.ForeColor = Color.FromArgb(196, 197, 191);
+            threadslbl.ForeColor = Color.FromArgb(255, 204, 230);
             threadslbl.Location = new Point(45, 231);
             threadslbl.Name = "threadslbl";
             threadslbl.Size = new Size(69, 15);
@@ -522,7 +522,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(53, 70, 80);
+            panel2.BackColor = Color.FromArgb(247, 139, 195);
             panel2.Controls.Add(imretardedcb);
             panel2.Controls.Add(proxyloadedlbl);
             panel2.Controls.Add(morethreadscb);
@@ -541,7 +541,7 @@
             imretardedcb.AutoSize = true;
             imretardedcb.Enabled = false;
             imretardedcb.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            imretardedcb.ForeColor = Color.FromArgb(196, 197, 191);
+            imretardedcb.ForeColor = Color.FromArgb(255, 204, 230);
             imretardedcb.Location = new Point(13, 265);
             imretardedcb.Name = "imretardedcb";
             imretardedcb.Size = new Size(111, 21);
@@ -554,7 +554,7 @@
             // proxyloadedlbl
             // 
             proxyloadedlbl.AutoSize = true;
-            proxyloadedlbl.ForeColor = Color.FromArgb(196, 197, 191);
+            proxyloadedlbl.ForeColor = Color.FromArgb(255, 204, 230);
             proxyloadedlbl.Location = new Point(13, 156);
             proxyloadedlbl.Name = "proxyloadedlbl";
             proxyloadedlbl.Size = new Size(88, 15);
@@ -564,7 +564,7 @@
             // linesloadedlbl
             // 
             linesloadedlbl.AutoSize = true;
-            linesloadedlbl.ForeColor = Color.FromArgb(196, 197, 191);
+            linesloadedlbl.ForeColor = Color.FromArgb(255, 204, 230);
             linesloadedlbl.Location = new Point(13, 77);
             linesloadedlbl.Name = "linesloadedlbl";
             linesloadedlbl.Size = new Size(85, 15);
@@ -573,7 +573,7 @@
             // 
             // loadproxybtn
             // 
-            loadproxybtn.BackColor = Color.FromArgb(65, 125, 149);
+            loadproxybtn.BackColor = Color.FromArgb(242, 99, 173);
             loadproxybtn.FlatStyle = FlatStyle.Popup;
             loadproxybtn.ForeColor = Color.FromArgb(196, 197, 191);
             loadproxybtn.Location = new Point(13, 108);
@@ -586,7 +586,7 @@
             // 
             // loadaccbtn
             // 
-            loadaccbtn.BackColor = Color.FromArgb(65, 125, 149);
+            loadaccbtn.BackColor = Color.FromArgb(242, 99, 173);
             loadaccbtn.FlatStyle = FlatStyle.Popup;
             loadaccbtn.ForeColor = Color.FromArgb(196, 197, 191);
             loadaccbtn.Location = new Point(13, 29);
@@ -608,7 +608,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(50, 50, 50);
+            BackColor = Color.FromArgb(242, 162, 204);
             ClientSize = new Size(899, 445);
             Controls.Add(progressBar1);
             Controls.Add(panel2);
