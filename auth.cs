@@ -108,7 +108,7 @@ public class RiotClient
                 if (proxy.login != null) handler.Credentials = new NetworkCredential(proxy.login, proxy.password);
             }
             HttpClient client = new HttpClient(handler);
-            client.Timeout = TimeSpan.FromSeconds(10);
+            client.Timeout = TimeSpan.FromSeconds(15);
             client.DefaultRequestHeaders.AcceptLanguage.TryParseAdd("en-US,en;q=0.9");
             client.DefaultRequestHeaders.Accept.TryParseAdd("application/json, text/plain, */*");
             client.DefaultRequestHeaders.UserAgent.TryParseAdd($"RiotClient/{Constants.USERAGENT} (Windows;10;;Professional, x64)");

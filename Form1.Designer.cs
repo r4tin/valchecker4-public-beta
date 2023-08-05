@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
+            pictureBox3 = new PictureBox();
             panel5 = new Panel();
             onetotenlbl = new Label();
             ahundredpluslbl = new Label();
@@ -68,23 +70,31 @@
             morethreadscb = new CheckBox();
             threadslbl = new Label();
             panel2 = new Panel();
+            pictureBox4 = new PictureBox();
             imretardedcb = new CheckBox();
             proxyloadedlbl = new Label();
             linesloadedlbl = new Label();
             loadproxybtn = new Button();
             loadaccbtn = new Button();
             progressBar1 = new ProgressBar();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(247, 139, 195);
+            panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
@@ -100,6 +110,15 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(678, 270);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(500, 166);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(175, 101);
+            pictureBox3.TabIndex = 17;
+            pictureBox3.TabStop = false;
             // 
             // panel5
             // 
@@ -523,6 +542,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(247, 139, 195);
+            panel2.Controls.Add(pictureBox4);
             panel2.Controls.Add(imretardedcb);
             panel2.Controls.Add(proxyloadedlbl);
             panel2.Controls.Add(morethreadscb);
@@ -535,6 +555,15 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(165, 415);
             panel2.TabIndex = 6;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(6, 291);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(156, 118);
+            pictureBox4.TabIndex = 12;
+            pictureBox4.TabStop = false;
             // 
             // imretardedcb
             // 
@@ -604,12 +633,33 @@
             progressBar1.Size = new Size(678, 23);
             progressBar1.TabIndex = 7;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
+            pictureBox1.Location = new Point(638, 294);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(245, 107);
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(189, 304);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(194, 94);
+            pictureBox2.TabIndex = 9;
+            pictureBox2.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(242, 162, 204);
             ClientSize = new Size(899, 445);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
             Controls.Add(progressBar1);
             Controls.Add(panel2);
             Controls.Add(startcheckingbtn);
@@ -617,10 +667,11 @@
             Controls.Add(checkedlabel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form1";
-            Text = "ValChecker v4.0 beta by liljaba1337";
+            Text = "ValChecker v4.0 beta femboy version by liljaba1337";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel4.ResumeLayout(false);
@@ -630,6 +681,9 @@
             ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -682,5 +736,9 @@
         public Label sixtyfivetoahundredlbl;
         public Label twentytofortyfivelbl;
         public Label fortyfivetosixtyfivelbl;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox2;
     }
 }
