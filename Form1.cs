@@ -12,6 +12,8 @@ namespace valchecker_4._0_private_beta
             InitializeComponent();
             TextChangeHandler.TextChangeEvent += OnTextChangeRequested;
 
+            labelsDictionary.Add("cpmlbl", cpmlbl);
+
             labelsDictionary.Add("checkedlabel", checkedlabel);
 
             labelsDictionary.Add("validlabel", validlabel);
@@ -161,6 +163,11 @@ namespace valchecker_4._0_private_beta
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

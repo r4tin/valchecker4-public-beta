@@ -79,6 +79,7 @@
             progressBar1 = new ProgressBar();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            cpmlbl = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel5.SuspendLayout();
@@ -94,6 +95,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(247, 139, 195);
+            panel1.Controls.Add(cpmlbl);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
@@ -652,6 +654,19 @@
             pictureBox2.TabIndex = 9;
             pictureBox2.TabStop = false;
             // 
+            // cpmlbl
+            // 
+            cpmlbl.AutoSize = true;
+            cpmlbl.BackColor = Color.Transparent;
+            cpmlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            cpmlbl.ForeColor = Color.FromArgb(255, 204, 230);
+            cpmlbl.Location = new Point(16, 10);
+            cpmlbl.Name = "cpmlbl";
+            cpmlbl.Size = new Size(67, 17);
+            cpmlbl.TabIndex = 18;
+            cpmlbl.Text = "N/A cpm ";
+            cpmlbl.Click += label1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -667,7 +682,7 @@
             Controls.Add(checkedlabel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form1";
-            Text = "ValChecker v4.0 beta femboy version by liljaba1337";
+            Text = "ValChecker v4.0 public beta (femboy version) by liljaba1337";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -740,5 +755,6 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private PictureBox pictureBox2;
+        public Label cpmlbl;
     }
 }

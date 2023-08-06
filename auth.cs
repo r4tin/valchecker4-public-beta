@@ -103,9 +103,11 @@ public class RiotClient
             if (proxy != null)
             {
                 Console.WriteLine($"{proxy.ip}:{proxy.port}");
-                handler.Proxy = new WebProxy($"{proxy.ip}:{proxy.port}");
+                handler.Proxy = new WebProxy($"http://{proxy.ip}:{proxy.port}", true);
                 handler.UseProxy = true;
-                if (proxy.login != null) handler.Credentials = new NetworkCredential(proxy.login, proxy.password);
+                if (proxy.login != null) {
+                    handler.Proxy.Credentials = new NetworkCredential(proxy.login, proxy.password);
+                }
             }
             HttpClient client = new HttpClient(handler);
             client.Timeout = TimeSpan.FromSeconds(15);

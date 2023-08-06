@@ -28,20 +28,36 @@ namespace valchecker
             string proxy = vars.proxylist[num++];
             if (num == vars.proxylist.Count) num = 0;
             var _proxy = new proxy();
+            Console.WriteLine(proxy);
             if (proxy.Contains(":"))
             {
-                _proxy.ip = proxy.Split(":")[0];
-                _proxy.port = proxy.Split(":")[1];
-                _proxy.login = null;
-                _proxy.password = null;
+                string ippart;
+                string passwordpart;
                 if (proxy.Contains("@"))
+                {
+                    ippart = proxy.Split("@")[0];
+                    passwordpart = proxy.Split("@")[1];
+                    if (passwordpart.Contains(":"))
                     {
-                        if (proxy.Split("@")[1].Contains(":"))
-                        {
-                            _proxy.login = proxy.Split("@")[1].Split(":")[0];
-                            _proxy.password = proxy.Split("@")[1].Split(":")[1];
-                        }
+                        _proxy.login = passwordpart.Split(":")[0];
+                        _proxy.password = passwordpart.Split(":")[1];
                     }
+                    else
+                    {
+                        _proxy.login = null;
+                        _proxy.password = null;
+                    }
+                    _proxy.ip = ippart.Split(":")[0];
+                    _proxy.port = ippart.Split(":")[1];
+                }
+                else
+                {
+                    ippart = proxy;
+                    _proxy.ip = ippart.Split(":")[0];
+                    _proxy.port = ippart.Split(":")[1];
+                    _proxy.login = null;
+                    _proxy.password = null;
+                }
             }
             else
             {

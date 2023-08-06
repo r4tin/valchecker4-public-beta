@@ -4,8 +4,29 @@ using System.Threading;
 using valchecker;
 using valchecker_4._0_private_beta;
 
+public static class uitools
+{
+    private static long premillis = 0;
+    private static int prechecked = 0;
+    public static async Task countcpm()
+    {
+        int precpm = accountsinfodb.cpm;
+        int nowchecked = accountsinfodb.checkednum;
+        long currentmillis = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        if (premillis != 0 && currentmillis-premillis >= 60000)
+        {
+            int cpm = nowchecked - prechecked;
+            char cpmarrow = precpm > cpm ? '↓' : '↑';
+            string cpmtext = $"{cpmarrow} {cpm} cpm";
+            TextChangeHandler.RaiseTextChangeEvent(cpmtext, "cpmlbl");
+        }
+        premillis = currentmillis;
+    }
+}
+
 public class accountsinfodb
 {
+    public static int cpm = 0;
     public static int checkednum = 0;
     public static int totalnum = 0;
     public static int valid = 0;
@@ -170,6 +191,7 @@ public static class mainProgram
             Task task = checkaccount(lines[num]);
             tasks.Add(task);
             num++;
+            await uitools.countcpm();
         }
 
         // Wait for all tasks to complete
@@ -185,15 +207,20 @@ public static class mainProgram
         {
             var proxy = await proxysystem.get_proxy();
             account = await client.AuthAsync(line.Trim(), proxy);
-            Console.WriteLine(account.errmsg);
+            Console.WriteLine($"{account.errmsg}");
             //Console.ReadLine();
-            if (account.code == 2 || account.code == 6 || account.code == 3 || account.code == 1)
+            if (account.code == 2 || account.code == 6 || account.code == 3)
             {
                 TextChangeHandler.RaiseTextChangeEvent($"Retries: {++accountsinfodb.retries}", "retrieslbl");
                 continue;
             }
+            else if(account.code == 1)
+            {
+                TextChangeHandler.RaiseTextChangeEvent($"Retries: {++accountsinfodb.retries}", "retrieslbl");
+                await Task.Delay(30000);
+                continue;
+            }
             break;
-
         }
         Console.WriteLine(account.errmsg != null ? account.errmsg : account.code);
         if(account.code == 0 && account.region != null)
