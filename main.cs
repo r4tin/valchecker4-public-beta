@@ -18,9 +18,11 @@ public static class uitools
             int cpm = nowchecked - prechecked;
             char cpmarrow = precpm > cpm ? '↓' : '↑';
             string cpmtext = $"{cpmarrow} {cpm} cpm";
+            prechecked = nowchecked;
             TextChangeHandler.RaiseTextChangeEvent(cpmtext, "cpmlbl");
         }
         premillis = currentmillis;
+        prechecked = nowchecked;
     }
 }
 
@@ -76,7 +78,6 @@ public class accountsinfodb
         if (account.unverifiedmail) { withfa += 1; }
         if (account.skins != null && account.skins.Count > 0)
         {
-            withskins += 1;
             int _num = account.skins.Count;
             if (_num >= 1 && _num < 10) { TextChangeHandler.RaiseTextChangeEvent($"1-10: {++accountsinfodb.skinsam["1-10"]}",
                 "onetotenlbl"); }
@@ -90,6 +91,7 @@ public class accountsinfodb
                 "sixtyfivetoahundredlbl"); }
             else if (_num >= 100) { TextChangeHandler.RaiseTextChangeEvent($"100+: {++accountsinfodb.skinsam["100+"]}",
                 "ahundredpluslbl"); }
+            TextChangeHandler.RaiseTextChangeEvent($"Skinned: {++accountsinfodb.withskins}", "wskinslbl");
         }
     }
     public static async Task generate_file(Account account)
@@ -122,6 +124,11 @@ public class accountsinfodb
             $"{string.Join("\n",account.skins)}\n" +
             $"╚═════════════════════════════════════════════════════════════╝";
 
+        if(account.banuntil != null)
+        {
+            File.WriteAllText($"{mainpath}\\tempbanned.txt", $"{accountinfo2write}\n\n");
+            return;
+        }
         if(account.skins != null && account.skins.Count > 0)
         {
             int _num = account.skins.Count;
@@ -229,11 +236,11 @@ public static class mainProgram
             await accountinfo.get_lastplayed(account);
             await accountinfo.get_balance(account);
             await accountinfo.get_skins(account);
-            await accountsinfodb.updateinfo(account);
+            if(account.banuntil == null) await accountsinfodb.updateinfo(account);
             Console.WriteLine(account.ToString());
         }
 
-        if (account.code == 0) { TextChangeHandler.RaiseTextChangeEvent($"Valid: {++accountsinfodb.valid}", "validlabel"); }
+        if (account.code == 0 && account.banuntil == null) { TextChangeHandler.RaiseTextChangeEvent($"Valid: {++accountsinfodb.valid}", "validlabel"); }
         else if (account.code == 4)
         {
             TextChangeHandler.RaiseTextChangeEvent($"Banned: {++accountsinfodb.banned}", "bannedlabel");

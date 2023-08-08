@@ -110,7 +110,7 @@ public class RiotClient
                 }
             }
             HttpClient client = new HttpClient(handler);
-            client.Timeout = TimeSpan.FromSeconds(15);
+            //client.Timeout = TimeSpan.FromSeconds(15);
             client.DefaultRequestHeaders.AcceptLanguage.TryParseAdd("en-US,en;q=0.9");
             client.DefaultRequestHeaders.Accept.TryParseAdd("application/json, text/plain, */*");
             client.DefaultRequestHeaders.UserAgent.TryParseAdd($"RiotClient/{Constants.USERAGENT} (Windows;10;;Professional, x64)");

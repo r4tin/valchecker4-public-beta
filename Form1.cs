@@ -1,15 +1,36 @@
 using System;
 using System.Windows.Forms;
 using static System.Windows.Forms.LinkLabel;
+using System.Runtime.InteropServices;
 
 namespace valchecker_4._0_private_beta
 {
     public partial class Form1 : Form
     {
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+
+        private static extern IntPtr CreateRoundRectRgn(
+            int nLeftRect,
+            int nTopRect,
+            int nRightRect,
+            int nBottomRect,
+            int nWidthEllipse,
+            int nHeightEllipse
+            );
+
+
         private Dictionary<string, Label> labelsDictionary = new Dictionary<string, Label>();
         public Form1()
         {
             InitializeComponent();
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
+            pnlnav.Height = checkerbtn.Height;
+            pnlnav.Top = checkerbtn.Top;
+            pnlnav.Left = checkerbtn.Left;
+            checkerbtn.BackColor = Color.FromArgb(46, 51, 73);
+
+
             TextChangeHandler.TextChangeEvent += OnTextChangeRequested;
 
             labelsDictionary.Add("cpmlbl", cpmlbl);
@@ -23,7 +44,6 @@ namespace valchecker_4._0_private_beta
             labelsDictionary.Add("wskinslbl", wskinslbl);
             labelsDictionary.Add("falbl", falbl);
 
-            labelsDictionary.Add("rlimitslbl", rlimitslbl);
             labelsDictionary.Add("errlbl", errlbl);
             labelsDictionary.Add("retrieslbl", retrieslbl);
 
@@ -170,6 +190,53 @@ namespace valchecker_4._0_private_beta
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkerbtn_Click(object sender, EventArgs e)
+        {
+            pnlnav.Height = checkerbtn.Height;
+            pnlnav.Top = checkerbtn.Top;
+            pnlnav.Left = checkerbtn.Left;
+            checkerbtn.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void proxytesterbtn_Click(object sender, EventArgs e)
+        {
+            pnlnav.Height = proxytesterbtn.Height;
+            pnlnav.Top = proxytesterbtn.Top;
+            proxytesterbtn.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void validsorterbtn_Click(object sender, EventArgs e)
+        {
+            pnlnav.Height = validsorterbtn.Height;
+            pnlnav.Top = validsorterbtn.Top;
+            validsorterbtn.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void checkerbtn_Leave(object sender, EventArgs e)
+        {
+            checkerbtn.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void proxytesterbtn_Leave(object sender, EventArgs e)
+        {
+            proxytesterbtn.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void validsorterbtn_Layout(object sender, LayoutEventArgs e)
+        {
+
+        }
+
+        private void validsorterbtn_Leave(object sender, EventArgs e)
+        {
+            validsorterbtn.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
     public static class vars

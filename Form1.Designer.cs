@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
-            pictureBox3 = new PictureBox();
+            label2 = new Label();
             panel5 = new Panel();
             onetotenlbl = new Label();
             ahundredpluslbl = new Label();
@@ -60,43 +59,42 @@
             wskinslbl = new Label();
             retrieslbl = new Label();
             errlbl = new Label();
-            rlimitslbl = new Label();
             tempbannedlbl = new Label();
             bannedlabel = new Label();
             validlabel = new Label();
-            checkedlabel = new Label();
-            startcheckingbtn = new Button();
-            trackBar1 = new TrackBar();
-            morethreadscb = new CheckBox();
-            threadslbl = new Label();
+            cpmlbl = new Label();
             panel2 = new Panel();
-            pictureBox4 = new PictureBox();
             imretardedcb = new CheckBox();
             proxyloadedlbl = new Label();
+            morethreadscb = new CheckBox();
+            threadslbl = new Label();
             linesloadedlbl = new Label();
             loadproxybtn = new Button();
+            trackBar1 = new TrackBar();
             loadaccbtn = new Button();
+            checkedlabel = new Label();
+            startcheckingbtn = new Button();
+            panelundernav = new Panel();
+            pnlnav = new Panel();
+            validsorterbtn = new Button();
+            proxytesterbtn = new Button();
+            checkerbtn = new Button();
+            label1 = new Label();
+            button1 = new Button();
             progressBar1 = new ProgressBar();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            cpmlbl = new Label();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
+            panelundernav.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(247, 139, 195);
-            panel1.Controls.Add(cpmlbl);
-            panel1.Controls.Add(pictureBox3);
+            panel1.BackColor = Color.FromArgb(37, 42, 64);
+            panel1.Controls.Add(label2);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
@@ -104,23 +102,24 @@
             panel1.Controls.Add(wskinslbl);
             panel1.Controls.Add(retrieslbl);
             panel1.Controls.Add(errlbl);
-            panel1.Controls.Add(rlimitslbl);
             panel1.Controls.Add(tempbannedlbl);
             panel1.Controls.Add(bannedlabel);
             panel1.Controls.Add(validlabel);
-            panel1.Location = new Point(209, 18);
+            panel1.Location = new Point(209, 58);
             panel1.Name = "panel1";
             panel1.Size = new Size(678, 270);
             panel1.TabIndex = 0;
             // 
-            // pictureBox3
+            // label2
             // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(500, 166);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(175, 101);
-            pictureBox3.TabIndex = 17;
-            pictureBox3.TabStop = false;
+            label2.AutoSize = true;
+            label2.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(8, 7);
+            label2.Name = "label2";
+            label2.Size = new Size(109, 25);
+            label2.TabIndex = 19;
+            label2.Text = "Dashboard";
             // 
             // panel5
             // 
@@ -130,7 +129,8 @@
             panel5.Controls.Add(sixtyfivetoahundredlbl);
             panel5.Controls.Add(twentytofortyfivelbl);
             panel5.Controls.Add(fortyfivetosixtyfivelbl);
-            panel5.ForeColor = Color.FromArgb(255, 204, 230);
+            panel5.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            panel5.ForeColor = Color.White;
             panel5.Location = new Point(439, 46);
             panel5.Name = "panel5";
             panel5.Size = new Size(76, 114);
@@ -208,7 +208,8 @@
             panel4.Controls.Add(golbl);
             panel4.Controls.Add(brolbl);
             panel4.Controls.Add(silbl);
-            panel4.ForeColor = Color.FromArgb(255, 204, 230);
+            panel4.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            panel4.ForeColor = Color.White;
             panel4.Location = new Point(269, 41);
             panel4.Name = "panel4";
             panel4.Size = new Size(112, 185);
@@ -322,7 +323,8 @@
             panel3.Controls.Add(krlbl);
             panel3.Controls.Add(aplbl);
             panel3.Controls.Add(brlbl);
-            panel3.ForeColor = Color.FromArgb(255, 204, 230);
+            panel3.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            panel3.ForeColor = Color.White;
             panel3.Location = new Point(160, 41);
             panel3.Name = "panel3";
             panel3.Size = new Size(76, 114);
@@ -392,11 +394,11 @@
             // 
             falbl.AutoSize = true;
             falbl.BackColor = Color.Transparent;
-            falbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            falbl.ForeColor = Color.FromArgb(255, 204, 230);
-            falbl.Location = new Point(16, 138);
+            falbl.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            falbl.ForeColor = Color.White;
+            falbl.Location = new Point(16, 166);
             falbl.Name = "falbl";
-            falbl.Size = new Size(38, 17);
+            falbl.Size = new Size(40, 19);
             falbl.TabIndex = 8;
             falbl.Text = "FA: 0";
             // 
@@ -404,66 +406,55 @@
             // 
             wskinslbl.AutoSize = true;
             wskinslbl.BackColor = Color.Transparent;
-            wskinslbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            wskinslbl.ForeColor = Color.FromArgb(255, 204, 230);
-            wskinslbl.Location = new Point(16, 121);
+            wskinslbl.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            wskinslbl.ForeColor = Color.White;
+            wskinslbl.Location = new Point(16, 149);
             wskinslbl.Name = "wskinslbl";
-            wskinslbl.Size = new Size(72, 17);
+            wskinslbl.Size = new Size(73, 19);
             wskinslbl.TabIndex = 7;
             wskinslbl.Text = "Skinned: 0";
             // 
             // retrieslbl
             // 
             retrieslbl.AutoSize = true;
-            retrieslbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            retrieslbl.ForeColor = Color.FromArgb(255, 204, 230);
+            retrieslbl.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            retrieslbl.ForeColor = Color.White;
             retrieslbl.Location = new Point(16, 229);
             retrieslbl.Name = "retrieslbl";
-            retrieslbl.Size = new Size(65, 17);
+            retrieslbl.Size = new Size(65, 19);
             retrieslbl.TabIndex = 6;
             retrieslbl.Text = "Retries: 0";
             // 
             // errlbl
             // 
             errlbl.AutoSize = true;
-            errlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            errlbl.ForeColor = Color.FromArgb(255, 204, 230);
+            errlbl.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            errlbl.ForeColor = Color.White;
             errlbl.Location = new Point(16, 209);
             errlbl.Name = "errlbl";
-            errlbl.Size = new Size(59, 17);
+            errlbl.Size = new Size(60, 19);
             errlbl.TabIndex = 5;
             errlbl.Text = "Errors: 0";
-            // 
-            // rlimitslbl
-            // 
-            rlimitslbl.AutoSize = true;
-            rlimitslbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            rlimitslbl.ForeColor = Color.FromArgb(255, 204, 230);
-            rlimitslbl.Location = new Point(16, 192);
-            rlimitslbl.Name = "rlimitslbl";
-            rlimitslbl.Size = new Size(92, 17);
-            rlimitslbl.TabIndex = 4;
-            rlimitslbl.Text = "Rate Limits: 0";
             // 
             // tempbannedlbl
             // 
             tempbannedlbl.AutoSize = true;
-            tempbannedlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            tempbannedlbl.ForeColor = Color.FromArgb(255, 204, 230);
-            tempbannedlbl.Location = new Point(16, 92);
+            tempbannedlbl.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            tempbannedlbl.ForeColor = Color.White;
+            tempbannedlbl.Location = new Point(16, 109);
             tempbannedlbl.Name = "tempbannedlbl";
-            tempbannedlbl.Size = new Size(103, 17);
+            tempbannedlbl.Size = new Size(104, 19);
             tempbannedlbl.TabIndex = 3;
             tempbannedlbl.Text = "TempBanned: 0";
             // 
             // bannedlabel
             // 
             bannedlabel.AutoSize = true;
-            bannedlabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            bannedlabel.ForeColor = Color.FromArgb(255, 204, 230);
-            bannedlabel.Location = new Point(16, 75);
+            bannedlabel.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            bannedlabel.ForeColor = Color.White;
+            bannedlabel.Location = new Point(16, 90);
             bannedlabel.Name = "bannedlabel";
-            bannedlabel.Size = new Size(69, 17);
+            bannedlabel.Size = new Size(70, 19);
             bannedlabel.TabIndex = 2;
             bannedlabel.Text = "Banned: 0";
             // 
@@ -471,80 +462,31 @@
             // 
             validlabel.AutoSize = true;
             validlabel.BackColor = Color.Transparent;
-            validlabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            validlabel.ForeColor = Color.FromArgb(255, 204, 230);
-            validlabel.Location = new Point(16, 57);
+            validlabel.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            validlabel.ForeColor = Color.White;
+            validlabel.Location = new Point(16, 69);
             validlabel.Name = "validlabel";
-            validlabel.Size = new Size(54, 17);
+            validlabel.Size = new Size(54, 19);
             validlabel.TabIndex = 1;
             validlabel.Text = "Valid: 0";
             validlabel.Click += validlabel_Click;
             // 
-            // checkedlabel
+            // cpmlbl
             // 
-            checkedlabel.AutoSize = true;
-            checkedlabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            checkedlabel.ForeColor = Color.FromArgb(255, 204, 230);
-            checkedlabel.Location = new Point(490, 384);
-            checkedlabel.Name = "checkedlabel";
-            checkedlabel.Size = new Size(87, 17);
-            checkedlabel.TabIndex = 0;
-            checkedlabel.Text = "Checked: 0/0";
-            // 
-            // startcheckingbtn
-            // 
-            startcheckingbtn.BackColor = Color.FromArgb(242, 99, 173);
-            startcheckingbtn.FlatStyle = FlatStyle.Popup;
-            startcheckingbtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            startcheckingbtn.ForeColor = Color.FromArgb(255, 204, 230);
-            startcheckingbtn.Location = new Point(389, 312);
-            startcheckingbtn.Name = "startcheckingbtn";
-            startcheckingbtn.Size = new Size(188, 50);
-            startcheckingbtn.TabIndex = 2;
-            startcheckingbtn.Text = "START";
-            startcheckingbtn.UseVisualStyleBackColor = false;
-            startcheckingbtn.Click += button1_Click;
-            // 
-            // trackBar1
-            // 
-            trackBar1.Location = new Point(3, 201);
-            trackBar1.Maximum = 50;
-            trackBar1.Minimum = 1;
-            trackBar1.Name = "trackBar1";
-            trackBar1.Size = new Size(159, 45);
-            trackBar1.TabIndex = 3;
-            trackBar1.Value = 1;
-            trackBar1.Scroll += trackBar1_Scroll;
-            // 
-            // morethreadscb
-            // 
-            morethreadscb.AutoSize = true;
-            morethreadscb.Enabled = false;
-            morethreadscb.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            morethreadscb.ForeColor = Color.FromArgb(255, 204, 230);
-            morethreadscb.Location = new Point(13, 249);
-            morethreadscb.Name = "morethreadscb";
-            morethreadscb.Size = new Size(124, 21);
-            morethreadscb.TabIndex = 4;
-            morethreadscb.Text = "WE NEED MORE";
-            morethreadscb.UseVisualStyleBackColor = true;
-            morethreadscb.Visible = false;
-            morethreadscb.CheckedChanged += morethreadscb_CheckedChanged;
-            // 
-            // threadslbl
-            // 
-            threadslbl.AutoSize = true;
-            threadslbl.ForeColor = Color.FromArgb(255, 204, 230);
-            threadslbl.Location = new Point(45, 231);
-            threadslbl.Name = "threadslbl";
-            threadslbl.Size = new Size(69, 15);
-            threadslbl.TabIndex = 5;
-            threadslbl.Text = "THREADS: 1";
+            cpmlbl.AutoSize = true;
+            cpmlbl.BackColor = Color.Transparent;
+            cpmlbl.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            cpmlbl.ForeColor = Color.White;
+            cpmlbl.Location = new Point(549, 382);
+            cpmlbl.Name = "cpmlbl";
+            cpmlbl.Size = new Size(70, 19);
+            cpmlbl.TabIndex = 18;
+            cpmlbl.Text = "N/A cpm ";
+            cpmlbl.Click += label1_Click;
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(247, 139, 195);
-            panel2.Controls.Add(pictureBox4);
+            panel2.BackColor = Color.Transparent;
             panel2.Controls.Add(imretardedcb);
             panel2.Controls.Add(proxyloadedlbl);
             panel2.Controls.Add(morethreadscb);
@@ -553,19 +495,10 @@
             panel2.Controls.Add(loadproxybtn);
             panel2.Controls.Add(trackBar1);
             panel2.Controls.Add(loadaccbtn);
-            panel2.Location = new Point(13, 18);
+            panel2.Location = new Point(12, 138);
             panel2.Name = "panel2";
             panel2.Size = new Size(165, 415);
             panel2.TabIndex = 6;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(6, 291);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(156, 118);
-            pictureBox4.TabIndex = 12;
-            pictureBox4.TabStop = false;
             // 
             // imretardedcb
             // 
@@ -592,6 +525,31 @@
             proxyloadedlbl.TabIndex = 10;
             proxyloadedlbl.Text = "Proxy loaded: 0";
             // 
+            // morethreadscb
+            // 
+            morethreadscb.AutoSize = true;
+            morethreadscb.Enabled = false;
+            morethreadscb.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            morethreadscb.ForeColor = Color.FromArgb(255, 204, 230);
+            morethreadscb.Location = new Point(13, 249);
+            morethreadscb.Name = "morethreadscb";
+            morethreadscb.Size = new Size(124, 21);
+            morethreadscb.TabIndex = 4;
+            morethreadscb.Text = "WE NEED MORE";
+            morethreadscb.UseVisualStyleBackColor = true;
+            morethreadscb.Visible = false;
+            morethreadscb.CheckedChanged += morethreadscb_CheckedChanged;
+            // 
+            // threadslbl
+            // 
+            threadslbl.AutoSize = true;
+            threadslbl.ForeColor = Color.FromArgb(255, 204, 230);
+            threadslbl.Location = new Point(45, 231);
+            threadslbl.Name = "threadslbl";
+            threadslbl.Size = new Size(69, 15);
+            threadslbl.TabIndex = 5;
+            threadslbl.Text = "THREADS: 1";
+            // 
             // linesloadedlbl
             // 
             linesloadedlbl.AutoSize = true;
@@ -615,6 +573,17 @@
             loadproxybtn.UseVisualStyleBackColor = false;
             loadproxybtn.Click += loadproxybtn_Click;
             // 
+            // trackBar1
+            // 
+            trackBar1.Location = new Point(3, 201);
+            trackBar1.Maximum = 50;
+            trackBar1.Minimum = 1;
+            trackBar1.Name = "trackBar1";
+            trackBar1.Size = new Size(159, 45);
+            trackBar1.TabIndex = 3;
+            trackBar1.Value = 1;
+            trackBar1.Scroll += trackBar1_Scroll;
+            // 
             // loadaccbtn
             // 
             loadaccbtn.BackColor = Color.FromArgb(242, 99, 173);
@@ -628,6 +597,135 @@
             loadaccbtn.UseVisualStyleBackColor = false;
             loadaccbtn.Click += loadaccbtn_Click;
             // 
+            // checkedlabel
+            // 
+            checkedlabel.AutoSize = true;
+            checkedlabel.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            checkedlabel.ForeColor = Color.White;
+            checkedlabel.Location = new Point(438, 384);
+            checkedlabel.Name = "checkedlabel";
+            checkedlabel.Size = new Size(91, 19);
+            checkedlabel.TabIndex = 0;
+            checkedlabel.Text = "Checked: 0/0";
+            // 
+            // startcheckingbtn
+            // 
+            startcheckingbtn.BackColor = Color.FromArgb(242, 99, 173);
+            startcheckingbtn.FlatStyle = FlatStyle.Popup;
+            startcheckingbtn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            startcheckingbtn.ForeColor = Color.FromArgb(255, 204, 230);
+            startcheckingbtn.Location = new Point(206, 348);
+            startcheckingbtn.Name = "startcheckingbtn";
+            startcheckingbtn.Size = new Size(188, 50);
+            startcheckingbtn.TabIndex = 2;
+            startcheckingbtn.Text = "START";
+            startcheckingbtn.UseVisualStyleBackColor = false;
+            startcheckingbtn.Click += button1_Click;
+            // 
+            // panelundernav
+            // 
+            panelundernav.BackColor = Color.FromArgb(21, 33, 50);
+            panelundernav.Controls.Add(pnlnav);
+            panelundernav.Controls.Add(panel2);
+            panelundernav.Controls.Add(validsorterbtn);
+            panelundernav.Controls.Add(proxytesterbtn);
+            panelundernav.Controls.Add(checkerbtn);
+            panelundernav.Dock = DockStyle.Left;
+            panelundernav.Location = new Point(0, 0);
+            panelundernav.Name = "panelundernav";
+            panelundernav.Size = new Size(200, 445);
+            panelundernav.TabIndex = 8;
+            // 
+            // pnlnav
+            // 
+            pnlnav.BackColor = Color.FromArgb(0, 126, 249);
+            pnlnav.Location = new Point(0, 193);
+            pnlnav.Name = "pnlnav";
+            pnlnav.Size = new Size(3, 100);
+            pnlnav.TabIndex = 3;
+            // 
+            // validsorterbtn
+            // 
+            validsorterbtn.BackColor = Color.Transparent;
+            validsorterbtn.Dock = DockStyle.Top;
+            validsorterbtn.FlatAppearance.BorderSize = 0;
+            validsorterbtn.FlatStyle = FlatStyle.Flat;
+            validsorterbtn.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            validsorterbtn.ForeColor = Color.FromArgb(0, 126, 249);
+            validsorterbtn.Image = Properties.Resources.icons8_filter_24;
+            validsorterbtn.Location = new Point(0, 84);
+            validsorterbtn.Name = "validsorterbtn";
+            validsorterbtn.Size = new Size(200, 42);
+            validsorterbtn.TabIndex = 2;
+            validsorterbtn.Text = "Valid Sorter";
+            validsorterbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+            validsorterbtn.UseVisualStyleBackColor = false;
+            validsorterbtn.Click += validsorterbtn_Click;
+            validsorterbtn.Layout += validsorterbtn_Layout;
+            validsorterbtn.Leave += validsorterbtn_Leave;
+            // 
+            // proxytesterbtn
+            // 
+            proxytesterbtn.BackColor = Color.Transparent;
+            proxytesterbtn.Dock = DockStyle.Top;
+            proxytesterbtn.FlatAppearance.BorderSize = 0;
+            proxytesterbtn.FlatStyle = FlatStyle.Flat;
+            proxytesterbtn.Font = new Font("Nirmala UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            proxytesterbtn.ForeColor = Color.FromArgb(0, 126, 249);
+            proxytesterbtn.Image = Properties.Resources.icons8_wifi_24__1_;
+            proxytesterbtn.Location = new Point(0, 42);
+            proxytesterbtn.Name = "proxytesterbtn";
+            proxytesterbtn.Size = new Size(200, 42);
+            proxytesterbtn.TabIndex = 1;
+            proxytesterbtn.Text = "Proxy Tester";
+            proxytesterbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+            proxytesterbtn.UseVisualStyleBackColor = false;
+            proxytesterbtn.Click += proxytesterbtn_Click;
+            proxytesterbtn.Leave += proxytesterbtn_Leave;
+            // 
+            // checkerbtn
+            // 
+            checkerbtn.BackColor = Color.Transparent;
+            checkerbtn.Dock = DockStyle.Top;
+            checkerbtn.FlatAppearance.BorderSize = 0;
+            checkerbtn.FlatStyle = FlatStyle.Flat;
+            checkerbtn.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            checkerbtn.ForeColor = Color.FromArgb(0, 126, 249);
+            checkerbtn.Image = Properties.Resources.icons8_beta_24__1_;
+            checkerbtn.Location = new Point(0, 0);
+            checkerbtn.Name = "checkerbtn";
+            checkerbtn.Size = new Size(200, 42);
+            checkerbtn.TabIndex = 0;
+            checkerbtn.Text = "Checker";
+            checkerbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+            checkerbtn.UseVisualStyleBackColor = false;
+            checkerbtn.Click += checkerbtn_Click;
+            checkerbtn.Leave += checkerbtn_Leave;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 21F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(158, 161, 176);
+            label1.Location = new Point(209, 10);
+            label1.Name = "label1";
+            label1.Size = new Size(395, 32);
+            label1.TabIndex = 9;
+            label1.Text = "ValChecker v4.0 public beta";
+            // 
+            // button1
+            // 
+            button1.FlatAppearance.BorderColor = Color.FromArgb(21, 33, 50);
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(862, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(25, 25);
+            button1.TabIndex = 10;
+            button1.Text = "X";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
+            // 
             // progressBar1
             // 
             progressBar1.Location = new Point(209, 404);
@@ -635,70 +733,36 @@
             progressBar1.Size = new Size(678, 23);
             progressBar1.TabIndex = 7;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
-            pictureBox1.Location = new Point(638, 294);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(245, 107);
-            pictureBox1.TabIndex = 8;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(189, 304);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(194, 94);
-            pictureBox2.TabIndex = 9;
-            pictureBox2.TabStop = false;
-            // 
-            // cpmlbl
-            // 
-            cpmlbl.AutoSize = true;
-            cpmlbl.BackColor = Color.Transparent;
-            cpmlbl.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            cpmlbl.ForeColor = Color.FromArgb(255, 204, 230);
-            cpmlbl.Location = new Point(16, 10);
-            cpmlbl.Name = "cpmlbl";
-            cpmlbl.Size = new Size(67, 17);
-            cpmlbl.TabIndex = 18;
-            cpmlbl.Text = "N/A cpm ";
-            cpmlbl.Click += label1_Click;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(242, 162, 204);
-            ClientSize = new Size(899, 445);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
+            BackColor = Color.FromArgb(46, 51, 73);
+            ClientSize = new Size(901, 445);
+            Controls.Add(cpmlbl);
+            Controls.Add(button1);
+            Controls.Add(label1);
+            Controls.Add(panelundernav);
             Controls.Add(progressBar1);
-            Controls.Add(panel2);
             Controls.Add(startcheckingbtn);
             Controls.Add(panel1);
             Controls.Add(checkedlabel);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
             Text = "ValChecker v4.0 public beta (femboy version) by liljaba1337";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
+            panelundernav.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -721,7 +785,6 @@
         public Label tempbannedlbl;
         public Label retrieslbl;
         public Label errlbl;
-        public Label rlimitslbl;
         public Label falbl;
         public Label wskinslbl;
         public Label eulbl;
@@ -730,7 +793,6 @@
         public Label brlbl;
         public Label aplbl;
         public Label nalbl;
-        private ProgressBar progressBar1;
         private Panel panel4;
         public Label unlbl;
         public Label pllbl;
@@ -751,10 +813,15 @@
         public Label sixtyfivetoahundredlbl;
         public Label twentytofortyfivelbl;
         public Label fortyfivetosixtyfivelbl;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox2;
         public Label cpmlbl;
+        private Panel panelundernav;
+        private Button checkerbtn;
+        private Button proxytesterbtn;
+        private Button validsorterbtn;
+        private Panel pnlnav;
+        private Label label1;
+        private Button button1;
+        private Label label2;
+        private ProgressBar progressBar1;
     }
 }
