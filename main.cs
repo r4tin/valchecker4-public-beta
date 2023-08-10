@@ -126,7 +126,7 @@ public class accountsinfodb
 
         if(account.banuntil != null)
         {
-            File.WriteAllText($"{mainpath}\\tempbanned.txt", $"{accountinfo2write}\n\n");
+            File.AppendAllText($"{mainpath}\\tempbanned.txt", $"{accountinfo2write}\n\n");
             return;
         }
         if(account.skins != null && account.skins.Count > 0)
@@ -135,41 +135,41 @@ public class accountsinfodb
             if (_num >= 1 && _num < 10)
             {
                 if (!Directory.Exists($"{mainpath}\\skins\\1-10")) { Directory.CreateDirectory($"{mainpath}\\skins\\1-10"); }
-                File.WriteAllText($"{mainpath}\\skins\\1-10\\{account.region}.txt", $"{accountinfo2write}\n\n");
+                File.AppendAllText($"{mainpath}\\skins\\1-10\\{account.region}.txt", $"{accountinfo2write}\n\n");
             }
             else if (_num >= 10 && _num < 20) 
             {
                 if (!Directory.Exists($"{mainpath}\\skins\\10-20")) { Directory.CreateDirectory($"{mainpath}\\skins\\10-20"); }
-                File.WriteAllText($"{mainpath}\\skins\\10-20\\{account.region}.txt", $"{accountinfo2write}\n\n");
+                File.AppendAllText($"{mainpath}\\skins\\10-20\\{account.region}.txt", $"{accountinfo2write}\n\n");
             }
             else if (_num >= 20 && _num < 45)
             {
                 if (!Directory.Exists($"{mainpath}\\skins\\20-45")) { Directory.CreateDirectory($"{mainpath}\\skins\\20-45"); }
-                File.WriteAllText($"{mainpath}\\skins\\20-45\\{account.region}.txt", $"{accountinfo2write}\n\n");
+                File.AppendAllText($"{mainpath}\\skins\\20-45\\{account.region}.txt", $"{accountinfo2write}\n\n");
             }
             else if (_num >= 45 && _num < 65)
             {
                 if (!Directory.Exists($"{mainpath}\\skins\\45-65")) { Directory.CreateDirectory($"{mainpath}\\skins\\45-65"); }
-                File.WriteAllText($"{mainpath}\\skins\\45-65\\{account.region}.txt", $"{accountinfo2write}\n\n");
+                File.AppendAllText($"{mainpath}\\skins\\45-65\\{account.region}.txt", $"{accountinfo2write}\n\n");
             }
             else if (_num >= 65 && _num < 100)
             {
                 if (!Directory.Exists($"{mainpath}\\skins\\65-100")) { Directory.CreateDirectory($"{mainpath}\\skins\\65-100"); }
-                File.WriteAllText($"{mainpath}\\skins\\65-100\\{account.region}.txt", $"{accountinfo2write}\n\n");
+                File.AppendAllText($"{mainpath}\\skins\\65-100\\{account.region}.txt", $"{accountinfo2write}\n\n");
             }
             else if (_num >= 100)
             {
                 if (!Directory.Exists($"{mainpath}\\skins\\100+")) { Directory.CreateDirectory($"{mainpath}\\skins\\100+"); }
-                File.WriteAllText($"{mainpath}\\skins\\100+\\{account.region}.txt", $"{accountinfo2write}\n\n");
+                File.AppendAllText($"{mainpath}\\skins\\100+\\{account.region}.txt", $"{accountinfo2write}\n\n");
             }
         }
 
         if(account.region != null)
         {
             if (!Directory.Exists($"{mainpath}\\regions\\{account.region}")) { Directory.CreateDirectory($"{mainpath}\\regions\\{account.region}"); }
-            File.WriteAllText($"{mainpath}\\regions\\{account.region}\\{account.rank}.txt", $"{accountinfo2write}\n\n");
+            File.AppendAllText($"{mainpath}\\regions\\{account.region}\\{account.rank}.txt", $"{accountinfo2write}\n\n");
         }
-        File.WriteAllText($"{mainpath}\\valid.txt", $"{accountinfo2write}\n\n");
+        File.AppendAllText($"{mainpath}\\valid.txt", $"{accountinfo2write}\n\n");
     }
 }
 

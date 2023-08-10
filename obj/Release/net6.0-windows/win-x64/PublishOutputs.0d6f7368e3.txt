@@ -1,0 +1,2 @@
+C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\bin\Release\net6.0-windows\publish\win-x64\valchecker-4.0-private-beta.pdb
+C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\bin\Release\net6.0-windows\publish\win-x64\valchecker-4.0-private-beta.exe

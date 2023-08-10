@@ -17,3 +17,4 @@ C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Release\net6.0-win
 C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Release\net6.0-windows\valchecker-4.0-private-beta.pdb
 C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Release\net6.0-windows\valchecker-4.0-private-beta.genruntimeconfig.cache
 C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Release\net6.0-windows\ref\valchecker-4.0-private-beta.dll
+C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Release\net6.0-windows\valchecker_4._0_private_beta.Properties.Resources.resources

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
             label2 = new Label();
             panel5 = new Panel();
@@ -748,6 +749,7 @@
             Controls.Add(panel1);
             Controls.Add(checkedlabel);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "ValChecker v4.0 public beta (femboy version) by liljaba1337";
             Load += Form1_Load;
