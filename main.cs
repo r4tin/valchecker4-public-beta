@@ -183,12 +183,11 @@ public static class mainProgram
         accountsinfodb.totalnum = lines.Count;
         TextChangeHandler.RaiseTextChangeEvent($"Checked: 0/{accountsinfodb.totalnum}", "checkedlabel");
         int num = 0;
-        int threadam = vars.threadsam;
         var tasks = new List<Task>();
 
         while (num < lines.Count)
         {
-            while (tasks.Count >= threadam)
+            while (tasks.Count >= vars.threadsam)
             {
                 tasks.RemoveAll(task => task.IsCompleted);
                 await Task.Delay(100);
