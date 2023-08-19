@@ -1,20 +1,36 @@
-﻿using balancerequest;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.IO;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net.Http.Headers;
+using System.Security.Policy;
 using System.Text.Json;
 
 namespace valchecker
 {
     internal class accountinfo
     {
+        async public static Task<List<string>?> normalizeskins(Account account = null, List<string> skinids = null)
+        {
+            var skins = new List<string>();
+            var uuids = new List<string>();
+            if(account != null) { uuids = account.uuids; }
+            HttpClientHandler handler = new HttpClientHandler();
+            HttpClient client = new HttpClient(handler);
+            int sum = 0;
+            foreach(string id in uuids)
+            {
+                var response = await client.GetAsync($"https://valorant-api.com/v1/weapons/skinlevels/{id}");
+                var normresponse = Newtonsoft.Json.JsonConvert.DeserializeObject<skininfo.main>(
+                    await response.Content.ReadAsStringAsync());
+                skins.Add(normresponse.data.displayName);
+            }
+            if(account != null)
+            {
+                account.skins = skins;
+                return null;
+            }
+            return skins;
+        }
         async public static Task get_rank(Account account)
         {
-            if(account.lvl < 20)
+            if (account.lvl < 20)
             {
                 account.rank = "locked";
                 return;
@@ -47,7 +63,7 @@ namespace valchecker
             }
             catch (Exception ex)
             {
-                Console.WriteLine("getrank: "+ex.Message);
+                Console.WriteLine("getrank: " + ex.Message);
             }
         }
         async public static Task get_lastplayed(Account account)
@@ -110,7 +126,7 @@ namespace valchecker
         async public static Task get_skins(Account account)
         {
             var skinids = new List<string>();
-            var skins = new List<string>();
+            //var skins = new List<string>();
             string region = account.region;
             if (region == "latam" || region == "br")
             {
@@ -123,35 +139,19 @@ namespace valchecker
             var response = await client.GetAsync($"https://pd.{region}.a.pvp.net/store/v1/entitlements/{account.puuid}/e7c63390-eda7-46e0-bb7a-a6abdacd2433");
             var responsetext = await response.Content.ReadAsStringAsync();
             var responsejson = Newtonsoft.Json.JsonConvert.DeserializeObject<skinsrequest.main>(responsetext);
-            var skinsjson = skinsjsonloader.skins;
+            //var skinsjson = skinsjsonloader.skins;
             if (responsejson.Entitlements.Count == 0)
             {
-                account.skins = skins;
+                //account.skins = skins;
                 account.uuids = skinids;
                 return;
             }
-            foreach ( var skin in responsejson.Entitlements )
+            foreach (var skin in responsejson.Entitlements)
             {
                 if (skinids.Contains(skin.ItemID)) { continue; }
                 skinids.Add(skin.ItemID);
-                foreach(var skinid in skinsjson.data)
-                {
-                    if(skin.ItemID == skinid.uuid)
-                    {
-                        skins.Add(skinid.displayName);
-                        break;
-                    }
-                    foreach (var level in skinid.levels)
-                    {
-                        if(skin.ItemID == level.uuid)
-                        {
-                            skins.Add(skinid.displayName);
-                            break;
-                        }
-                    }
-                }
             }
-            account.skins = skins;
+            //account.skins = skins;
             account.uuids = skinids;
         }
     }

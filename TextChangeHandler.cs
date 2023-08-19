@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace valchecker_4._0_private_beta
+﻿namespace valchecker_4._0_private_beta
 {
     public delegate void TextChangeEventHandler(object sender, TextChangeEventArgs e);
 

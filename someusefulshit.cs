@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net;
-using System.Net.Http.Headers;
-using System.Text.RegularExpressions;
-using Newtonsoft.Json;
-using System.Reflection.Metadata;
+﻿using System.Net.Http.Headers;
 using valchecker_4._0_private_beta;
 
 namespace valchecker
@@ -82,10 +73,10 @@ namespace valchecker
             if (data.Count == 0) return null;
             bool istimeban = false;
             DateTimeOffset exptime = new DateTimeOffset();
-            foreach(bantypes.mainrestrictionpart bandata in data)
+            foreach (bantypes.mainrestrictionpart bandata in data)
             {
                 if (bandata.scope == "riot" && bandata.type == "PERMANENT_BAN") return new DateTimeOffset();
-                if(bandata.scope == "ares")
+                if (bandata.scope == "ares")
                 {
                     if (bandata.type == "PERMANENT_BAN") return new DateTimeOffset();
                     if (bandata.type == "TIME_BAN")
@@ -108,10 +99,10 @@ namespace valchecker
             {
                 country = data.country.ToUpper();
                 if (data.region != null && Constants.LOL2REG.TryGetValue(data.region.id, out fixedregion)) { Console.WriteLine($"yeee- {data.region.id}"); }
-                else if(data.country != null)
+                else if (data.country != null)
                 {
                     Console.WriteLine("uuu");
-                    fixedregion = Constants.COU2REG[Constants.A2TOA3[data.country.ToUpper()]];   
+                    fixedregion = Constants.COU2REG[Constants.A2TOA3[data.country.ToUpper()]];
                 }
                 else
                 {
@@ -122,12 +113,12 @@ namespace valchecker
                 }
                 fixedregion = fixedregion.ToLower();
                 progregion = fixedregion;
-                if(fixedregion == "latam" || fixedregion == "br")
+                if (fixedregion == "latam" || fixedregion == "br")
                 {
                     progregion = "na";
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e);
                 account.region = null;
@@ -152,14 +143,14 @@ namespace valchecker
         {
             return DateTimeOffset.FromUnixTimeMilliseconds(millisec);
         }
-        
+
         public static async Task load_assets()
         {
             if (!Directory.Exists("assets")) { Directory.CreateDirectory("assets"); }
-            HttpClientHandler handler = new HttpClientHandler();
-            HttpClient client = new HttpClient(handler);
-            var response = await client.GetAsync("https://valorant-api.com/v1/weapons/skins/");
-            File.WriteAllText("assets\\skins.json", await response.Content.ReadAsStringAsync());
+            //HttpClientHandler handler = new HttpClientHandler();
+            //HttpClient client = new HttpClient(handler);
+            //var response = await client.GetAsync("https://valorant-api.com/v1/weapons/skins/");
+            //File.WriteAllText("assets\\skins.json", await response.Content.ReadAsStringAsync());
 
             someusefulshit.foldername = DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss");
         }

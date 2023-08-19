@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace tokenauthjson
+﻿namespace tokenauthjson
 {
     public class Parameters
     {
@@ -41,7 +34,7 @@ namespace userinfojson
         public string state { get; set; }
         public bool adm { get; set; }
         public string game_name { get; set; }
-        public string tag_line { get; set;}
+        public string tag_line { get; set; }
         public long created_at { get; set; }
     }
     public class Regioninfo
@@ -117,9 +110,9 @@ namespace lastplayedrequest
 {
     public class main
     {
-        public List<match> History { get; set;}
+        public List<match> History { get; set; }
     }
-    
+
     public class match
     {
         public long GameStartTime { get; set; }
@@ -143,6 +136,18 @@ namespace skinsrequest
     public class skin
     {
         public string ItemID { get; set; }
+    }
+}
+
+namespace skininfo
+{
+    public class main
+    {
+        public skindata data { get; set; }
+    }
+    public class skindata
+    {
+        public string displayName { get; set; }
     }
 }
 

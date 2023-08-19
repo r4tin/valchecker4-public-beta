@@ -1,9 +1,4 @@
-using System;
-using System.Windows.Forms;
-using static System.Windows.Forms.LinkLabel;
-using System.Runtime.InteropServices;
 using System.Diagnostics;
-using System.Security.Policy;
 
 namespace valchecker_4._0_private_beta
 {
@@ -14,7 +9,7 @@ namespace valchecker_4._0_private_beta
         public Form1()
         {
             InitializeComponent();
-
+            test.firststart();
 
             TextChangeHandler.TextChangeEvent += OnTextChangeRequested;
 
@@ -184,7 +179,7 @@ namespace valchecker_4._0_private_beta
 
         private void discordbtn_Click(object sender, EventArgs e)
         {
-            Process.Start("explorer.exe","https://discord.gg/DYfCsZG5UX");
+            Process.Start("explorer.exe", "https://discord.gg/DYfCsZG5UX");
         }
 
         private void ghbtn_Click(object sender, EventArgs e)

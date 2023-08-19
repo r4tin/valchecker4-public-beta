@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.RegularExpressions;
-using Newtonsoft.Json;
 using valchecker;
 
 public class Account
@@ -22,6 +21,7 @@ public class Account
     public DateTimeOffset registerdate { get; set; }
     public string? region { get; set; }
     public string? country { get; set; }
+    public int? skinsprice { get; set; }
 
     public int? lvl { get; set; }
     public string? rank { get; set; }
@@ -39,8 +39,8 @@ public class Account
         return $"errmsg: {errmsg}\n" +
                $"code: {code}\n" +
                $"logpass: {logpass}\n" +
-               $"token: {token!=null}\n" +
-               $"entt: {entt!= null}\n" +
+               $"token: {token != null}\n" +
+               $"entt: {entt != null}\n" +
                $"puuid: {puuid}\n" +
                $"unverifiedmail: {unverifiedmail}\n" +
                $"banuntil: {banuntil}\n" +
@@ -88,6 +88,11 @@ public class RiotClient
     public async Task<Account> AuthAsync(string logpass, proxy? proxy = null)
     {
         Account account = new Account();
+        if (!logpass.Contains(':'))
+        {
+            account.code = 3;
+            return account;
+        }
         try
         {
             account.logpass = logpass;
@@ -105,7 +110,8 @@ public class RiotClient
                 Console.WriteLine($"{proxy.ip}:{proxy.port}");
                 handler.Proxy = new WebProxy($"http://{proxy.ip}:{proxy.port}", true);
                 handler.UseProxy = true;
-                if (proxy.login != null) {
+                if (proxy.login != null)
+                {
                     handler.Proxy.Credentials = new NetworkCredential(proxy.login, proxy.password);
                 }
             }
