@@ -30,7 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
+            cpmlbl = new Label();
             label2 = new Label();
+            progressBar1 = new ProgressBar();
+            panel2 = new Panel();
+            imretardedcb = new CheckBox();
+            proxyloadedlbl = new Label();
+            morethreadscb = new CheckBox();
+            threadslbl = new Label();
+            linesloadedlbl = new Label();
+            loadproxybtn = new Button();
+            trackBar1 = new TrackBar();
+            loadaccbtn = new Button();
+            checkedlabel = new Label();
+            startcheckingbtn = new Button();
             panel5 = new Panel();
             onetotenlbl = new Label();
             ahundredpluslbl = new Label();
@@ -64,42 +77,25 @@
             bannedlabel = new Label();
             validlabel = new Label();
             button1 = new Button();
-            panel2 = new Panel();
-            imretardedcb = new CheckBox();
-            proxyloadedlbl = new Label();
-            morethreadscb = new CheckBox();
-            threadslbl = new Label();
-            linesloadedlbl = new Label();
-            loadproxybtn = new Button();
-            trackBar1 = new TrackBar();
-            loadaccbtn = new Button();
-            cpmlbl = new Label();
-            checkedlabel = new Label();
-            startcheckingbtn = new Button();
-            panelundernav = new Panel();
-            validsorterbtn = new Button();
-            proxytesterbtn = new Button();
-            checkerbtn = new Button();
-            panelLogo = new Panel();
-            ghbtn = new Button();
-            discordbtn = new Button();
-            label3 = new Label();
+            panel6 = new Panel();
             label1 = new Label();
-            progressBar1 = new ProgressBar();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
-            panelundernav.SuspendLayout();
-            panelLogo.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(37, 42, 64);
+            panel1.Controls.Add(cpmlbl);
             panel1.Controls.Add(label2);
+            panel1.Controls.Add(progressBar1);
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(checkedlabel);
+            panel1.Controls.Add(startcheckingbtn);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
@@ -110,10 +106,23 @@
             panel1.Controls.Add(tempbannedlbl);
             panel1.Controls.Add(bannedlabel);
             panel1.Controls.Add(validlabel);
-            panel1.Location = new Point(218, -2);
+            panel1.Location = new Point(190, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(661, 275);
+            panel1.Size = new Size(679, 288);
             panel1.TabIndex = 0;
+            // 
+            // cpmlbl
+            // 
+            cpmlbl.AutoSize = true;
+            cpmlbl.BackColor = Color.Transparent;
+            cpmlbl.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            cpmlbl.ForeColor = Color.White;
+            cpmlbl.Location = new Point(424, 178);
+            cpmlbl.Name = "cpmlbl";
+            cpmlbl.Size = new Size(70, 19);
+            cpmlbl.TabIndex = 18;
+            cpmlbl.Text = "N/A cpm ";
+            cpmlbl.Click += label1_Click;
             // 
             // label2
             // 
@@ -125,6 +134,158 @@
             label2.Size = new Size(109, 25);
             label2.TabIndex = 19;
             label2.Text = "Dashboard";
+            // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(160, 219);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(653, 23);
+            progressBar1.TabIndex = 7;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.Transparent;
+            panel2.Controls.Add(imretardedcb);
+            panel2.Controls.Add(proxyloadedlbl);
+            panel2.Controls.Add(morethreadscb);
+            panel2.Controls.Add(threadslbl);
+            panel2.Controls.Add(linesloadedlbl);
+            panel2.Controls.Add(loadproxybtn);
+            panel2.Controls.Add(trackBar1);
+            panel2.Controls.Add(loadaccbtn);
+            panel2.Location = new Point(481, 14);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(165, 299);
+            panel2.TabIndex = 6;
+            // 
+            // imretardedcb
+            // 
+            imretardedcb.AutoSize = true;
+            imretardedcb.Enabled = false;
+            imretardedcb.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            imretardedcb.ForeColor = Color.White;
+            imretardedcb.Location = new Point(13, 265);
+            imretardedcb.Name = "imretardedcb";
+            imretardedcb.Size = new Size(101, 17);
+            imretardedcb.TabIndex = 11;
+            imretardedcb.Text = "I'M RETARDED";
+            imretardedcb.UseVisualStyleBackColor = true;
+            imretardedcb.Visible = false;
+            imretardedcb.CheckedChanged += imretardedcb_CheckedChanged;
+            // 
+            // proxyloadedlbl
+            // 
+            proxyloadedlbl.AutoSize = true;
+            proxyloadedlbl.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            proxyloadedlbl.ForeColor = Color.White;
+            proxyloadedlbl.Location = new Point(13, 156);
+            proxyloadedlbl.Name = "proxyloadedlbl";
+            proxyloadedlbl.Size = new Size(88, 13);
+            proxyloadedlbl.TabIndex = 10;
+            proxyloadedlbl.Text = "Proxy loaded: 0";
+            // 
+            // morethreadscb
+            // 
+            morethreadscb.AutoSize = true;
+            morethreadscb.Enabled = false;
+            morethreadscb.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            morethreadscb.ForeColor = Color.White;
+            morethreadscb.Location = new Point(13, 249);
+            morethreadscb.Name = "morethreadscb";
+            morethreadscb.Size = new Size(110, 17);
+            morethreadscb.TabIndex = 4;
+            morethreadscb.Text = "WE NEED MORE";
+            morethreadscb.UseVisualStyleBackColor = true;
+            morethreadscb.Visible = false;
+            morethreadscb.CheckedChanged += morethreadscb_CheckedChanged;
+            // 
+            // threadslbl
+            // 
+            threadslbl.AutoSize = true;
+            threadslbl.BackColor = Color.FromArgb(39, 39, 58);
+            threadslbl.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            threadslbl.ForeColor = Color.White;
+            threadslbl.Location = new Point(45, 231);
+            threadslbl.Name = "threadslbl";
+            threadslbl.Size = new Size(68, 13);
+            threadslbl.TabIndex = 5;
+            threadslbl.Text = "THREADS: 1";
+            // 
+            // linesloadedlbl
+            // 
+            linesloadedlbl.AutoSize = true;
+            linesloadedlbl.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            linesloadedlbl.ForeColor = Color.White;
+            linesloadedlbl.Location = new Point(13, 77);
+            linesloadedlbl.Name = "linesloadedlbl";
+            linesloadedlbl.Size = new Size(85, 13);
+            linesloadedlbl.TabIndex = 9;
+            linesloadedlbl.Text = "Lines loaded: 0";
+            // 
+            // loadproxybtn
+            // 
+            loadproxybtn.BackColor = Color.FromArgb(39, 39, 58);
+            loadproxybtn.FlatStyle = FlatStyle.Popup;
+            loadproxybtn.Font = new Font("Microsoft YaHei UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            loadproxybtn.ForeColor = Color.White;
+            loadproxybtn.Location = new Point(13, 108);
+            loadproxybtn.Name = "loadproxybtn";
+            loadproxybtn.Size = new Size(134, 45);
+            loadproxybtn.TabIndex = 8;
+            loadproxybtn.Text = "load proxylist";
+            loadproxybtn.UseVisualStyleBackColor = false;
+            loadproxybtn.Click += loadproxybtn_Click;
+            // 
+            // trackBar1
+            // 
+            trackBar1.BackColor = Color.FromArgb(39, 39, 58);
+            trackBar1.Location = new Point(3, 201);
+            trackBar1.Maximum = 50;
+            trackBar1.Minimum = 1;
+            trackBar1.Name = "trackBar1";
+            trackBar1.Size = new Size(159, 45);
+            trackBar1.TabIndex = 3;
+            trackBar1.Value = 1;
+            trackBar1.Scroll += trackBar1_Scroll;
+            // 
+            // loadaccbtn
+            // 
+            loadaccbtn.BackColor = Color.FromArgb(39, 39, 58);
+            loadaccbtn.FlatStyle = FlatStyle.Popup;
+            loadaccbtn.Font = new Font("Microsoft YaHei UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            loadaccbtn.ForeColor = Color.White;
+            loadaccbtn.Location = new Point(13, 29);
+            loadaccbtn.Name = "loadaccbtn";
+            loadaccbtn.Size = new Size(134, 45);
+            loadaccbtn.TabIndex = 7;
+            loadaccbtn.Text = "load combo";
+            loadaccbtn.UseVisualStyleBackColor = false;
+            loadaccbtn.Click += loadaccbtn_Click;
+            // 
+            // checkedlabel
+            // 
+            checkedlabel.AutoSize = true;
+            checkedlabel.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            checkedlabel.ForeColor = Color.White;
+            checkedlabel.Location = new Point(424, 197);
+            checkedlabel.Name = "checkedlabel";
+            checkedlabel.Size = new Size(91, 19);
+            checkedlabel.TabIndex = 0;
+            checkedlabel.Text = "Checked: 0/0";
+            // 
+            // startcheckingbtn
+            // 
+            startcheckingbtn.BackColor = Color.FromArgb(39, 39, 58);
+            startcheckingbtn.FlatStyle = FlatStyle.Popup;
+            startcheckingbtn.Font = new Font("Microsoft YaHei UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            startcheckingbtn.ForeColor = Color.White;
+            startcheckingbtn.Location = new Point(77, 230);
+            startcheckingbtn.Name = "startcheckingbtn";
+            startcheckingbtn.Size = new Size(188, 50);
+            startcheckingbtn.TabIndex = 2;
+            startcheckingbtn.Text = "START";
+            startcheckingbtn.UseVisualStyleBackColor = false;
+            startcheckingbtn.Click += button1_Click;
             // 
             // panel5
             // 
@@ -481,7 +642,7 @@
             button1.FlatAppearance.BorderColor = Color.FromArgb(21, 33, 50);
             button1.FlatStyle = FlatStyle.Flat;
             button1.ForeColor = Color.White;
-            button1.Location = new Point(137, -2);
+            button1.Location = new Point(771, 3);
             button1.Name = "button1";
             button1.Size = new Size(25, 25);
             button1.TabIndex = 10;
@@ -489,318 +650,57 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
             // 
-            // panel2
+            // panel6
             // 
-            panel2.BackColor = Color.Transparent;
-            panel2.Controls.Add(imretardedcb);
-            panel2.Controls.Add(button1);
-            panel2.Controls.Add(proxyloadedlbl);
-            panel2.Controls.Add(morethreadscb);
-            panel2.Controls.Add(threadslbl);
-            panel2.Controls.Add(linesloadedlbl);
-            panel2.Controls.Add(loadproxybtn);
-            panel2.Controls.Add(trackBar1);
-            panel2.Controls.Add(loadaccbtn);
-            panel2.Location = new Point(744, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(165, 299);
-            panel2.TabIndex = 6;
-            // 
-            // imretardedcb
-            // 
-            imretardedcb.AutoSize = true;
-            imretardedcb.Enabled = false;
-            imretardedcb.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            imretardedcb.ForeColor = Color.White;
-            imretardedcb.Location = new Point(13, 265);
-            imretardedcb.Name = "imretardedcb";
-            imretardedcb.Size = new Size(101, 17);
-            imretardedcb.TabIndex = 11;
-            imretardedcb.Text = "I'M RETARDED";
-            imretardedcb.UseVisualStyleBackColor = true;
-            imretardedcb.Visible = false;
-            imretardedcb.CheckedChanged += imretardedcb_CheckedChanged;
-            // 
-            // proxyloadedlbl
-            // 
-            proxyloadedlbl.AutoSize = true;
-            proxyloadedlbl.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            proxyloadedlbl.ForeColor = Color.White;
-            proxyloadedlbl.Location = new Point(13, 156);
-            proxyloadedlbl.Name = "proxyloadedlbl";
-            proxyloadedlbl.Size = new Size(88, 13);
-            proxyloadedlbl.TabIndex = 10;
-            proxyloadedlbl.Text = "Proxy loaded: 0";
-            // 
-            // morethreadscb
-            // 
-            morethreadscb.AutoSize = true;
-            morethreadscb.Enabled = false;
-            morethreadscb.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            morethreadscb.ForeColor = Color.White;
-            morethreadscb.Location = new Point(13, 249);
-            morethreadscb.Name = "morethreadscb";
-            morethreadscb.Size = new Size(110, 17);
-            morethreadscb.TabIndex = 4;
-            morethreadscb.Text = "WE NEED MORE";
-            morethreadscb.UseVisualStyleBackColor = true;
-            morethreadscb.Visible = false;
-            morethreadscb.CheckedChanged += morethreadscb_CheckedChanged;
-            // 
-            // threadslbl
-            // 
-            threadslbl.AutoSize = true;
-            threadslbl.BackColor = Color.FromArgb(39, 39, 58);
-            threadslbl.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            threadslbl.ForeColor = Color.White;
-            threadslbl.Location = new Point(45, 231);
-            threadslbl.Name = "threadslbl";
-            threadslbl.Size = new Size(68, 13);
-            threadslbl.TabIndex = 5;
-            threadslbl.Text = "THREADS: 1";
-            // 
-            // linesloadedlbl
-            // 
-            linesloadedlbl.AutoSize = true;
-            linesloadedlbl.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            linesloadedlbl.ForeColor = Color.White;
-            linesloadedlbl.Location = new Point(13, 77);
-            linesloadedlbl.Name = "linesloadedlbl";
-            linesloadedlbl.Size = new Size(85, 13);
-            linesloadedlbl.TabIndex = 9;
-            linesloadedlbl.Text = "Lines loaded: 0";
-            // 
-            // loadproxybtn
-            // 
-            loadproxybtn.BackColor = Color.FromArgb(39, 39, 58);
-            loadproxybtn.FlatStyle = FlatStyle.Popup;
-            loadproxybtn.Font = new Font("Microsoft YaHei UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            loadproxybtn.ForeColor = Color.White;
-            loadproxybtn.Location = new Point(13, 108);
-            loadproxybtn.Name = "loadproxybtn";
-            loadproxybtn.Size = new Size(134, 45);
-            loadproxybtn.TabIndex = 8;
-            loadproxybtn.Text = "load proxylist";
-            loadproxybtn.UseVisualStyleBackColor = false;
-            loadproxybtn.Click += loadproxybtn_Click;
-            // 
-            // trackBar1
-            // 
-            trackBar1.BackColor = Color.FromArgb(39, 39, 58);
-            trackBar1.Location = new Point(3, 201);
-            trackBar1.Maximum = 50;
-            trackBar1.Minimum = 1;
-            trackBar1.Name = "trackBar1";
-            trackBar1.Size = new Size(159, 45);
-            trackBar1.TabIndex = 3;
-            trackBar1.Value = 1;
-            trackBar1.Scroll += trackBar1_Scroll;
-            // 
-            // loadaccbtn
-            // 
-            loadaccbtn.BackColor = Color.FromArgb(39, 39, 58);
-            loadaccbtn.FlatStyle = FlatStyle.Popup;
-            loadaccbtn.Font = new Font("Microsoft YaHei UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            loadaccbtn.ForeColor = Color.White;
-            loadaccbtn.Location = new Point(13, 29);
-            loadaccbtn.Name = "loadaccbtn";
-            loadaccbtn.Size = new Size(134, 45);
-            loadaccbtn.TabIndex = 7;
-            loadaccbtn.Text = "load combo";
-            loadaccbtn.UseVisualStyleBackColor = false;
-            loadaccbtn.Click += loadaccbtn_Click;
-            // 
-            // cpmlbl
-            // 
-            cpmlbl.AutoSize = true;
-            cpmlbl.BackColor = Color.Transparent;
-            cpmlbl.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            cpmlbl.ForeColor = Color.White;
-            cpmlbl.Location = new Point(490, 298);
-            cpmlbl.Name = "cpmlbl";
-            cpmlbl.Size = new Size(70, 19);
-            cpmlbl.TabIndex = 18;
-            cpmlbl.Text = "N/A cpm ";
-            cpmlbl.Click += label1_Click;
-            // 
-            // checkedlabel
-            // 
-            checkedlabel.AutoSize = true;
-            checkedlabel.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            checkedlabel.ForeColor = Color.White;
-            checkedlabel.Location = new Point(490, 317);
-            checkedlabel.Name = "checkedlabel";
-            checkedlabel.Size = new Size(91, 19);
-            checkedlabel.TabIndex = 0;
-            checkedlabel.Text = "Checked: 0/0";
-            // 
-            // startcheckingbtn
-            // 
-            startcheckingbtn.BackColor = Color.FromArgb(39, 39, 58);
-            startcheckingbtn.FlatStyle = FlatStyle.Popup;
-            startcheckingbtn.Font = new Font("Microsoft YaHei UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            startcheckingbtn.ForeColor = Color.White;
-            startcheckingbtn.Location = new Point(226, 283);
-            startcheckingbtn.Name = "startcheckingbtn";
-            startcheckingbtn.Size = new Size(188, 50);
-            startcheckingbtn.TabIndex = 2;
-            startcheckingbtn.Text = "START";
-            startcheckingbtn.UseVisualStyleBackColor = false;
-            startcheckingbtn.Click += button1_Click;
-            // 
-            // panelundernav
-            // 
-            panelundernav.BackColor = Color.FromArgb(51, 51, 76);
-            panelundernav.Controls.Add(validsorterbtn);
-            panelundernav.Controls.Add(proxytesterbtn);
-            panelundernav.Controls.Add(checkerbtn);
-            panelundernav.Controls.Add(panelLogo);
-            panelundernav.Dock = DockStyle.Left;
-            panelundernav.Location = new Point(0, 0);
-            panelundernav.Name = "panelundernav";
-            panelundernav.Size = new Size(220, 374);
-            panelundernav.TabIndex = 8;
-            // 
-            // validsorterbtn
-            // 
-            validsorterbtn.Dock = DockStyle.Top;
-            validsorterbtn.FlatAppearance.BorderSize = 0;
-            validsorterbtn.FlatStyle = FlatStyle.Flat;
-            validsorterbtn.Image = Properties.Resources.icons8_filter_24;
-            validsorterbtn.Location = new Point(0, 215);
-            validsorterbtn.Name = "validsorterbtn";
-            validsorterbtn.Size = new Size(220, 60);
-            validsorterbtn.TabIndex = 7;
-            validsorterbtn.Text = "valid sorter";
-            validsorterbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
-            validsorterbtn.UseVisualStyleBackColor = true;
-            // 
-            // proxytesterbtn
-            // 
-            proxytesterbtn.Dock = DockStyle.Top;
-            proxytesterbtn.FlatAppearance.BorderSize = 0;
-            proxytesterbtn.FlatStyle = FlatStyle.Flat;
-            proxytesterbtn.Image = Properties.Resources.icons8_wifi_24__1_;
-            proxytesterbtn.Location = new Point(0, 155);
-            proxytesterbtn.Name = "proxytesterbtn";
-            proxytesterbtn.Size = new Size(220, 60);
-            proxytesterbtn.TabIndex = 6;
-            proxytesterbtn.Text = "proxy tester";
-            proxytesterbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
-            proxytesterbtn.UseVisualStyleBackColor = true;
-            // 
-            // checkerbtn
-            // 
-            checkerbtn.Dock = DockStyle.Top;
-            checkerbtn.FlatAppearance.BorderSize = 0;
-            checkerbtn.FlatStyle = FlatStyle.Flat;
-            checkerbtn.Image = Properties.Resources.icons8_beta_24__1_;
-            checkerbtn.Location = new Point(0, 95);
-            checkerbtn.Name = "checkerbtn";
-            checkerbtn.Size = new Size(220, 60);
-            checkerbtn.TabIndex = 5;
-            checkerbtn.Text = "checker";
-            checkerbtn.TextImageRelation = TextImageRelation.TextBeforeImage;
-            checkerbtn.UseVisualStyleBackColor = true;
-            // 
-            // panelLogo
-            // 
-            panelLogo.BackColor = Color.FromArgb(39, 39, 58);
-            panelLogo.Controls.Add(ghbtn);
-            panelLogo.Controls.Add(discordbtn);
-            panelLogo.Controls.Add(label3);
-            panelLogo.Controls.Add(label1);
-            panelLogo.Dock = DockStyle.Top;
-            panelLogo.Location = new Point(0, 0);
-            panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(220, 95);
-            panelLogo.TabIndex = 4;
-            // 
-            // ghbtn
-            // 
-            ghbtn.FlatAppearance.BorderSize = 0;
-            ghbtn.FlatStyle = FlatStyle.Flat;
-            ghbtn.Image = Properties.Resources.icons8_github_48__1_;
-            ghbtn.Location = new Point(43, 65);
-            ghbtn.Name = "ghbtn";
-            ghbtn.Size = new Size(25, 25);
-            ghbtn.TabIndex = 11;
-            ghbtn.UseVisualStyleBackColor = true;
-            ghbtn.Click += ghbtn_Click;
-            // 
-            // discordbtn
-            // 
-            discordbtn.FlatAppearance.BorderSize = 0;
-            discordbtn.FlatStyle = FlatStyle.Flat;
-            discordbtn.Image = Properties.Resources.icons8_discord_50__1_;
-            discordbtn.Location = new Point(12, 65);
-            discordbtn.Name = "discordbtn";
-            discordbtn.Size = new Size(25, 25);
-            discordbtn.TabIndex = 11;
-            discordbtn.UseVisualStyleBackColor = true;
-            discordbtn.Click += discordbtn_Click;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.FromArgb(158, 161, 176);
-            label3.Location = new Point(4, 42);
-            label3.Name = "label3";
-            label3.Size = new Size(208, 21);
-            label3.TabIndex = 10;
-            label3.Text = "Developed by liljaba1337";
+            panel6.BackColor = Color.FromArgb(14, 16, 15);
+            panel6.ForeColor = Color.FromArgb(22, 26, 25);
+            panel6.Location = new Point(23, 26);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(290, 314);
+            panel6.TabIndex = 11;
+            panel6.Paint += panel6_Paint;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.FromArgb(158, 161, 176);
-            label1.Location = new Point(0, 9);
+            label1.Font = new Font("Franklin Gothic Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(75, 76, 76);
+            label1.Location = new Point(12, 4);
             label1.Name = "label1";
-            label1.Size = new Size(208, 24);
-            label1.TabIndex = 9;
-            label1.Text = "ValChecker v4.0 beta";
-            // 
-            // progressBar1
-            // 
-            progressBar1.Location = new Point(226, 339);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(653, 23);
-            progressBar1.TabIndex = 7;
+            label1.Size = new Size(172, 20);
+            label1.TabIndex = 12;
+            label1.Text = "ValChecker v4.0 BETA";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(901, 374);
-            Controls.Add(cpmlbl);
-            Controls.Add(panel2);
-            Controls.Add(panelundernav);
-            Controls.Add(progressBar1);
-            Controls.Add(startcheckingbtn);
+            BackColor = Color.FromArgb(18, 20, 19);
+            ClientSize = new Size(800, 450);
             Controls.Add(panel1);
-            Controls.Add(checkedlabel);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Controls.Add(label1);
+            Controls.Add(panel6);
+            Controls.Add(button1);
+            ForeColor = Color.FromArgb(14, 16, 15);
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "ValChecker v4.0 public beta (femboy version) by liljaba1337";
             Load += Form1_Load;
+            MouseDown += Form1_MouseDown;
+            MouseMove += Form1_MouseMove;
+            MouseUp += Form1_MouseUp;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
-            panelundernav.ResumeLayout(false);
-            panelLogo.ResumeLayout(false);
-            panelLogo.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -852,17 +752,10 @@
         public Label twentytofortyfivelbl;
         public Label fortyfivetosixtyfivelbl;
         public Label cpmlbl;
-        private Panel panelundernav;
-        private Label label1;
         private Button button1;
         private Label label2;
         private ProgressBar progressBar1;
-        private Button checkerbtn;
-        private Panel panelLogo;
-        private Button validsorterbtn;
-        private Button proxytesterbtn;
-        private Button discordbtn;
-        private Label label3;
-        private Button ghbtn;
+        private Panel panel6;
+        private Label label1;
     }
 }

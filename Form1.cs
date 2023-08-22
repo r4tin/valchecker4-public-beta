@@ -1,15 +1,20 @@
 using System.Diagnostics;
+using System.Drawing.Drawing2D;
 
 namespace valchecker_4._0_private_beta
 {
     public partial class Form1 : Form
     {
-
+        bool IsDown;
+        Point PrevMousePosition;
+        public int CornerRadius { get; set; } = 10;
         private Dictionary<string, Label> labelsDictionary = new Dictionary<string, Label>();
         public Form1()
         {
             InitializeComponent();
+            this.Opacity = 0.99;
             test.firststart();
+            //this.DoubleBuffered = true;
 
             TextChangeHandler.TextChangeEvent += OnTextChangeRequested;
 
@@ -185,6 +190,32 @@ namespace valchecker_4._0_private_beta
         private void ghbtn_Click(object sender, EventArgs e)
         {
             Process.Start("explorer.exe", "https://github.com/LIL-JABA/");
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            IsDown = true;
+            PrevMousePosition = MousePosition;
+        }
+
+        private void Form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            IsDown = false;
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (IsDown)
+            {
+                Point CurrentMousePosition = MousePosition;
+                this.Location = new Point(this.Location.X + (CurrentMousePosition.X - PrevMousePosition.X), this.Location.Y + (CurrentMousePosition.Y - PrevMousePosition.Y));
+                PrevMousePosition = CurrentMousePosition;
+            }
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
     public static class vars

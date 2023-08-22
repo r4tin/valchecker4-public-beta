@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "e2CTRhd0xTcp2TnBsfIq0UwMjx341yPDnH2xlc3Y9sHL4/rZK9V68pr4gojP5QKK2ANCxqXVmo8pJQajQer88w==",
+  "dgSpecHash": "FlrZJGnnL1vVF8WhSt+mAegALI4/opvuRtrDjoG4x2JhksSUGRyg+XDn+DFJJubkwhfqbosNKetnQ2ZSg7bedA==",
   "success": true,
   "projectFilePath": "C:\\Users\\roadhog\\source\\repos\\valchecker-4.0-private-beta\\valchecker-4.0-private-beta.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\roadhog\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\roadhog\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\roadhog\\.nuget\\packages\\realtaiizor\\3.7.9.4\\realtaiizor.3.7.9.4.nupkg.sha512"
   ],
   "logs": []
 }

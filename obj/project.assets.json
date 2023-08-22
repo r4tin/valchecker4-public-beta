@@ -14,6 +14,22 @@
             "related": ".xml"
           }
         }
+      },
+      "ReaLTaiizor/3.7.9.4": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows7.0/ReaLTaiizor.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/ReaLTaiizor.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
       }
     }
   },
@@ -47,11 +63,38 @@
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
+    },
+    "ReaLTaiizor/3.7.9.4": {
+      "sha512": "/nJpvt+mb1A2vpI8HzFn4vzdYJTlKN8WnzCDA5hwHAqJhvrRX5+grL/OBl0Mkl3sJrBvGHjgZQFJP4XnQQzGSA==",
+      "type": "package",
+      "path": "realtaiizor/3.7.9.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.MD",
+        "Taiizor.png",
+        "lib/net48/ReaLTaiizor.dll",
+        "lib/net48/ReaLTaiizor.xml",
+        "lib/net481/ReaLTaiizor.dll",
+        "lib/net481/ReaLTaiizor.xml",
+        "lib/net6.0-windows7.0/ReaLTaiizor.dll",
+        "lib/net6.0-windows7.0/ReaLTaiizor.xml",
+        "lib/net7.0-windows7.0/ReaLTaiizor.dll",
+        "lib/net7.0-windows7.0/ReaLTaiizor.xml",
+        "lib/net8.0-windows7.0/ReaLTaiizor.dll",
+        "lib/net8.0-windows7.0/ReaLTaiizor.xml",
+        "lib/netcoreapp3.1/ReaLTaiizor.dll",
+        "lib/netcoreapp3.1/ReaLTaiizor.xml",
+        "realtaiizor.3.7.9.4.nupkg.sha512",
+        "realtaiizor.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "Newtonsoft.Json >= 13.0.3"
+      "Newtonsoft.Json >= 13.0.3",
+      "ReaLTaiizor >= 3.7.9.4"
     ]
   },
   "packageFolders": {
@@ -96,6 +139,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "ReaLTaiizor": {
+            "target": "Package",
+            "version": "[3.7.9.4, )"
           }
         },
         "imports": [
