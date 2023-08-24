@@ -14,6 +14,8 @@ namespace valchecker_4._0_private_beta
             InitializeComponent();
             this.Opacity = 0.99;
             test.firststart();
+            var rauth = new RiotClient();
+            //rauth.AuthAsync("gwclapzz:Woodbridge11");
             //this.DoubleBuffered = true;
 
             TextChangeHandler.TextChangeEvent += OnTextChangeRequested;

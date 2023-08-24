@@ -106,7 +106,7 @@
             panel1.Controls.Add(tempbannedlbl);
             panel1.Controls.Add(bannedlabel);
             panel1.Controls.Add(validlabel);
-            panel1.Location = new Point(190, 12);
+            panel1.Location = new Point(127, 12);
             panel1.Name = "panel1";
             panel1.Size = new Size(679, 288);
             panel1.TabIndex = 0;

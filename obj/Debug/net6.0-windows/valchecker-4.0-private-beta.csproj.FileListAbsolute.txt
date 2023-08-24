@@ -19,3 +19,8 @@ C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Debug\net6.0-windo
 C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Debug\net6.0-windows\valchecker-4.0-private-beta.genruntimeconfig.cache
 C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\obj\Debug\net6.0-windows\ref\valchecker-4.0-private-beta.dll
 C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\bin\Debug\net6.0-windows\ReaLTaiizor.dll
+C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\bin\Debug\net6.0-windows\FlareSolverrSharp.dll
+C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\bin\Debug\net6.0-windows\CloudFlareUtilities.dll
+C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\bin\Debug\net6.0-windows\CloudProxySharp.dll
+C:\Users\roadhog\source\repos\valchecker-4.0-private-beta\bin\Debug\net6.0-windows\YetAnotherCloudProxySharp.dll

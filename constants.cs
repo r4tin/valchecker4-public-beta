@@ -6,7 +6,7 @@
         public const string AUTH_URL = "https://auth.riotgames.com/api/v1/authorization";
         public const string ENTITLEMENT_URL = "https://entitlements.auth.riotgames.com/api/token/v1";
         public const string USERINFO_URL = "https://auth.riotgames.com/userinfo";
-        public const string USERAGENT = "68.0.10.220.1239";
+        public const string USERAGENT = "70.0.0.247.1382";
         public const string CLIENTPLATFORM = "ew0KCSJwbGF0Zm9ybVR5cGUiOiAiUEMiLA0KCSJwbGF0Zm9ybU9TIjogIldpbmRvd3MiLA0KCSJwbGF0" +
             "Zm9ybU9TVmVyc2lvbiI6ICIxMC4wLjE5MDQyLjEuMjU2LjY0Yml0IiwNCgkicGxhdGZvcm1DaGlwc2V0IjogIlVua25vd24iDQp9";
 

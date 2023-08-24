@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using CloudProxySharp;
+using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
@@ -101,25 +102,31 @@ public class RiotClient
             {
                 { "Accept-Language", "en-US,en;q=0.9" },
                 { "Accept", "application/json, text/plain, */*" },
-                { "User-Agent", $"RiotClient/{Constants.USERAGENT} (Windows;10;;Professional, x64)" }
+                { "User-Agent", $"RainbowSixSiege/{Constants.USERAGENT} (Windows;10;;Professional, x64)" }
             };
 
             HttpClientHandler handler = new HttpClientHandler();
+            var handler1 = new ClearanceHandler("http://localhost:8191/")
+            {
+                //Make sure that the string literal is in single line else it won't work 
+                UserAgent = $"RainbowSixSiege/{Constants.USERAGENT} (Windows;10;;Professional, x64)",
+                MaxTimeout = 60000
+            };
             if (proxy != null)
             {
                 Console.WriteLine($"{proxy.ip}:{proxy.port}");
-                handler.Proxy = new WebProxy($"http://{proxy.ip}:{proxy.port}", true);
-                handler.UseProxy = true;
-                if (proxy.login != null)
-                {
-                    handler.Proxy.Credentials = new NetworkCredential(proxy.login, proxy.password);
-                }
+                //handler.ProxyUrl = new WebProxy($"http://{proxy.ip}:{proxy.port}", true);
+                //handler.UseProxy = true;
+                //if (proxy.login != null)
+                //{
+                //    handler.Proxy.Credentials = new NetworkCredential(proxy.login, proxy.password);
+                //}
             }
-            HttpClient client = new HttpClient(handler);
+            HttpClient client = new HttpClient(handler1);
             //client.Timeout = TimeSpan.FromSeconds(15);
             client.DefaultRequestHeaders.AcceptLanguage.TryParseAdd("en-US,en;q=0.9");
             client.DefaultRequestHeaders.Accept.TryParseAdd("application/json, text/plain, */*");
-            client.DefaultRequestHeaders.UserAgent.TryParseAdd($"RiotClient/{Constants.USERAGENT} (Windows;10;;Professional, x64)");
+            client.DefaultRequestHeaders.UserAgent.TryParseAdd($"RainbowSixSiege/{Constants.USERAGENT} (Windows;10;;Professional, x64)");
 
             string username = logpass.Split(':')[0].Trim();
             string password = logpass.Split(':')[1].Trim();
@@ -139,12 +146,14 @@ public class RiotClient
             HttpResponseMessage response = await client.PostAsync(Constants.AUTH_URL, content);
 
             string responseContent = await response.Content.ReadAsStringAsync();
-
-            if (!response.IsSuccessStatusCode)
-            {
-                account.code = 6;
-                return account;
-            }
+            //responseContent = await response.Content.ReadAsStringAsync();
+            //Console.WriteLine(responseContent);
+            //Console.ReadLine();
+            //if (!response.IsSuccessStatusCode)
+            //{
+            //    account.code = 6;
+            //    return account;
+            //}
 
             data = new Dictionary<string, string>
             {
@@ -155,8 +164,10 @@ public class RiotClient
 
             content = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
             response = await client.PutAsync(Constants.AUTH_URL, content);
-
             responseContent = await response.Content.ReadAsStringAsync();
+            //Console.WriteLine(responseContent);
+            //Console.ReadLine();
+
 
             if (!response.IsSuccessStatusCode)
             {
@@ -260,16 +271,22 @@ public class RiotClient
             await someusefulshit.get_region(account, userinfodata);
             return account;
         }
-        catch (WebException ex)
-        {
-            account.code = 3;
-            return account;
-        }
         catch (Exception e)
         {
-            account.errmsg = e.ToString();
-            account.code = 2;
-            return account;
+            Console.WriteLine(e.ToString());
+            Console.ReadLine();
         }
+        return account;
+        //catch (WebException ex)
+        //{
+        //    account.code = 3;
+        //    return account;
+        //}
+        //catch (Exception e)
+        //{
+        //    account.errmsg = e.ToString();
+        //    account.code = 2;
+        //    return account;
+        //}
     }
 }
