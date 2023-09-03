@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\roadhog\\source\\repos\\valchecker-4.0-private-beta\\valchecker-4.0-private-beta.csproj": {}
+    "C:\\Users\\roadhog\\source\\repos\\LIL-JABA\\valchecker4-public-beta\\valchecker-4.0-private-beta.csproj": {}
   },
   "projects": {
-    "C:\\Users\\roadhog\\source\\repos\\valchecker-4.0-private-beta\\valchecker-4.0-private-beta.csproj": {
+    "C:\\Users\\roadhog\\source\\repos\\LIL-JABA\\valchecker4-public-beta\\valchecker-4.0-private-beta.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\roadhog\\source\\repos\\valchecker-4.0-private-beta\\valchecker-4.0-private-beta.csproj",
+        "projectUniqueName": "C:\\Users\\roadhog\\source\\repos\\LIL-JABA\\valchecker4-public-beta\\valchecker-4.0-private-beta.csproj",
         "projectName": "valchecker-4.0-private-beta",
-        "projectPath": "C:\\Users\\roadhog\\source\\repos\\valchecker-4.0-private-beta\\valchecker-4.0-private-beta.csproj",
+        "projectPath": "C:\\Users\\roadhog\\source\\repos\\LIL-JABA\\valchecker4-public-beta\\valchecker-4.0-private-beta.csproj",
         "packagesPath": "C:\\Users\\roadhog\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\roadhog\\source\\repos\\valchecker-4.0-private-beta\\obj\\",
+        "outputPath": "C:\\Users\\roadhog\\source\\repos\\LIL-JABA\\valchecker4-public-beta\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\roadhog\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[1.8.9, )"
             },
+            "CliWrap": {
+              "target": "Package",
+              "version": "[3.6.4, )"
+            },
             "CloudFlareUtilities": {
               "target": "Package",
               "version": "[1.3.0, )"
@@ -63,6 +67,10 @@
             "ReaLTaiizor": {
               "target": "Package",
               "version": "[3.7.9.4, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[110.2.0, )"
             },
             "YetAnotherCloudProxySharp": {
               "target": "Package",

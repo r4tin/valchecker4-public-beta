@@ -247,26 +247,28 @@ public static class mainProgram
         RiotClient client;
         Account account;
         client = new RiotClient();
-        while (true)
-        {
-            var proxy = await proxysystem.get_proxy();
-            account = await client.AuthAsync(line.Trim(), proxy);
-            Console.WriteLine($"{account.errmsg}");
-            //Console.ReadLine();
-            if (account.code == 2 || account.code == 6 || account.code == 3)
-            {
-                TextChangeHandler.RaiseTextChangeEvent($"Retries: {++accountsinfodb.retries}", "retrieslbl");
-                continue;
-            }
-            else if (account.code == 1)
-            {
-                TextChangeHandler.RaiseTextChangeEvent($"Retries: {++accountsinfodb.retries}", "retrieslbl");
-                await Task.Delay(30000);
-                continue;
-            }
-            break;
-        }
+        
+        repeat:
+        var proxy = await proxysystem.get_proxy();
+        account = await client.AuthAsync(line.Trim(), proxy);
         Console.WriteLine(account.errmsg != null ? account.errmsg : account.code);
+        //Console.ReadLine();
+        if (account.code == 2 || account.code == 6)
+        {
+            TextChangeHandler.RaiseTextChangeEvent($"Retries: {++accountsinfodb.retries}", "retrieslbl");
+            goto repeat;
+        }
+        else if (account.code == 1)
+        {
+            TextChangeHandler.RaiseTextChangeEvent($"Retries: {++accountsinfodb.retries}", "retrieslbl");
+            await Task.Delay(30000);
+            goto repeat;
+        }
+        else if(account.code == 3)
+        {
+            await accountsinfodb.updateinfo(account);
+        }
+        //Console.WriteLine(account.errmsg != null ? account.errmsg : account.code);
         //await test.getnightmarket(account);
         if (account.code == 0 && account.region != null)
         {

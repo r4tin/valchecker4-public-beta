@@ -1,10 +1,20 @@
-﻿using CloudProxySharp;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using valchecker;
+using Org.BouncyCastle.Crypto.Tls;
+using System.Security.Authentication;
+using System.Net.Http;
+using System;
+using RestSharp;
+using valchecker_4._0_private_beta;
+using Org.BouncyCastle.Asn1.Ocsp;
+using System.Text.Json.Nodes;
+using System.Reflection.Metadata;
 
 public class Account
 {
@@ -61,12 +71,12 @@ public class Account
     }
 }
 
+
 public class RiotClient
 {
 
     private static Dictionary<string, string> ExtractTokensFromUri(string uri)
     {
-        // Use regular expressions to extract tokens from the 'uri' based on the provided pattern
         string pattern = @"access_token=((?:[a-zA-Z]|\d|\.|\-|_)*).*id_token=((?:[a-zA-Z]|\d|\.|\-|_)*).*expires_in=(\d*)";
         Match match = Regex.Match(uri, pattern);
 
@@ -84,9 +94,9 @@ public class RiotClient
         };
         }
 
-        return null; // Return null if the pattern is not matched
+        return null;
     }
-    public async Task<Account> AuthAsync(string logpass, proxy? proxy = null)
+    public async Task<Account> AuthAsync(string logpass, proxy proxy = null)
     {
         Account account = new Account();
         if (!logpass.Contains(':'))
@@ -102,58 +112,52 @@ public class RiotClient
             {
                 { "Accept-Language", "en-US,en;q=0.9" },
                 { "Accept", "application/json, text/plain, */*" },
-                { "User-Agent", $"RainbowSixSiege/{Constants.USERAGENT} (Windows;10;;Professional, x64)" }
+                //{ "User-Agent", $"Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 225.0.0.9.115 (iPhone13,3; iOS 15_3_1; it_IT; it-IT; scale=3.00; 1170x2532; 355286437) NW/3" }
+                { "User-Agent", $"RiotClient/{Constants.riotclientbuild} rso-auth (Windows;10;;Professional, x64)" }
             };
 
             HttpClientHandler handler = new HttpClientHandler();
-            var handler1 = new ClearanceHandler("http://localhost:8191/")
-            {
-                //Make sure that the string literal is in single line else it won't work 
-                UserAgent = $"RainbowSixSiege/{Constants.USERAGENT} (Windows;10;;Professional, x64)",
-                MaxTimeout = 60000
-            };
             if (proxy != null)
             {
                 Console.WriteLine($"{proxy.ip}:{proxy.port}");
-                //handler.ProxyUrl = new WebProxy($"http://{proxy.ip}:{proxy.port}", true);
-                //handler.UseProxy = true;
-                //if (proxy.login != null)
-                //{
-                //    handler.Proxy.Credentials = new NetworkCredential(proxy.login, proxy.password);
-                //}
+                handler.Proxy = new WebProxy($"http://{proxy.ip}:{proxy.port}", true);
+                handler.UseProxy = true;
+                if (proxy.login != null)
+                {
+                    handler.Proxy.Credentials = new NetworkCredential(proxy.login, proxy.password);
+                }
             }
-            HttpClient client = new HttpClient(handler1);
-            //client.Timeout = TimeSpan.FromSeconds(15);
-            client.DefaultRequestHeaders.AcceptLanguage.TryParseAdd("en-US,en;q=0.9");
-            client.DefaultRequestHeaders.Accept.TryParseAdd("application/json, text/plain, */*");
-            client.DefaultRequestHeaders.UserAgent.TryParseAdd($"RainbowSixSiege/{Constants.USERAGENT} (Windows;10;;Professional, x64)");
+            //var client = new HttpClient(handler);
+            var client = new RestClient(handler);
 
+
+            //client.Timeout = TimeSpan.FromSeconds(15);
+            //client.DefaultRequestHeaders.UserAgent.TryParseAdd("Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 225.0.0.9.115 (iPhone13,3; iOS 15_3_1; it_IT; it-IT; scale=3.00; 1170x2532; 355286437) NW/3");
+            client.AddDefaultHeaders(headers);
             string username = logpass.Split(':')[0].Trim();
             string password = logpass.Split(':')[1].Trim();
 
+            //Auth2.Login(username, password);
+            //return account;
+
             Dictionary<string, string> data = new Dictionary<string, string>
             {
-                { "acr_values", "urn:riot:bronze" },
+                { "acr_values", "" },
                 { "claims", "" },
                 { "client_id", "riot-client" },
-                { "nonce", "oYnVwCSrlS5IHKh7iI16oQ" },
+                { "nonce", "vYMrGocX3yrmrgnmKpVnOw" },
                 { "redirect_uri", "http://localhost/redirect" },
                 { "response_type", "token id_token" },
-                { "scope", "openid link ban lol_region" }
+                { "scope", "openid link ban lol_region account" }
             };
+            string jsonData = JsonConvert.SerializeObject(data);
 
-            StringContent content = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await client.PostAsync(Constants.AUTH_URL, content);
+            var authrequest = new RestRequest(Constants.AUTH_URL, Method.Post);
+            //Console.WriteLine(jsonData);
+            authrequest.AddParameter("application/json", jsonData, ParameterType.RequestBody);
+            RestResponse response = await client.ExecuteAsync(authrequest);
 
-            string responseContent = await response.Content.ReadAsStringAsync();
-            //responseContent = await response.Content.ReadAsStringAsync();
-            //Console.WriteLine(responseContent);
-            //Console.ReadLine();
-            //if (!response.IsSuccessStatusCode)
-            //{
-            //    account.code = 6;
-            //    return account;
-            //}
+            //string responseContent = response.Content;
 
             data = new Dictionary<string, string>
             {
@@ -161,14 +165,15 @@ public class RiotClient
                 { "username", username },
                 { "password", password }
             };
+            client.AddDefaultHeader("user-agent", $"RiotClient/{Constants.riotclientbuild} rso-authenticator (Windows;10;;Professional, x64)");
+            jsonData = JsonConvert.SerializeObject(data);
+            var auth2request = new RestRequest(Constants.AUTH_URL, Method.Put);
+            auth2request.AddParameter("application/json", jsonData, ParameterType.RequestBody);
+            RestResponse response2 = await client.ExecuteAsync(auth2request);
 
-            content = new StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
-            response = await client.PutAsync(Constants.AUTH_URL, content);
-            responseContent = await response.Content.ReadAsStringAsync();
+            var responseContent = response2.Content;
             //Console.WriteLine(responseContent);
             //Console.ReadLine();
-
-
             if (!response.IsSuccessStatusCode)
             {
                 account.code = 6;
@@ -185,17 +190,14 @@ public class RiotClient
                     string uri = apiresponse.response.parameters?.uri;
                     if (!string.IsNullOrEmpty(uri))
                     {
-                        // Extract tokens using the provided pattern
                         Dictionary<string, string> tokens = ExtractTokensFromUri(uri);
                         if (tokens != null)
                         {
-                            // Now you can use 'access_token', 'id_token', and 'expires_in' as needed
                             token = tokens["access_token"];
                             account.token = token;
                         }
                         else
                         {
-                            // Handle the case when the pattern does not match
                             Console.WriteLine("Failed to extract tokens from the uri.");
                             return account;
                         }
@@ -233,22 +235,27 @@ public class RiotClient
                 return account;
             }
 
+            client.AddDefaultHeader("Authorization",$"Bearer {token}");
+            var content = new StringContent("", Encoding.UTF8, "application/json");
+            var enttrequest = new RestRequest(Constants.ENTITLEMENT_URL, Method.Post);
+            enttrequest.AddParameter("application/json", "{}", ParameterType.RequestBody);
+            response = await client.ExecuteAsync(enttrequest);
             Console.WriteLine("entt good");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            content = new StringContent("", Encoding.UTF8, "application/json");
-            response = await client.PostAsync(Constants.ENTITLEMENT_URL, content);
 
-            responseContent = await response.Content.ReadAsStringAsync();
+            responseContent = response.Content;
             Dictionary<string, string> dataentt = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(responseContent);
             string entt = dataentt["entitlements_token"];
             account.entt = entt;
 
 
+            client.AddDefaultHeader("Authorization", $"Bearer {token}");
             content = new StringContent("", Encoding.UTF8, "application/json");
-            response = await client.PostAsync(Constants.USERINFO_URL, content);
+            var uinforequest = new RestRequest(Constants.USERINFO_URL, Method.Post);
+            enttrequest.AddParameter("application/json", "{}", ParameterType.RequestBody);
+            response = await client.ExecuteAsync(uinforequest);
 
-            responseContent = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(responseContent);
+            responseContent = response.Content;
+            //Console.WriteLine(responseContent);
 
             var userinfodata = Newtonsoft.Json.JsonConvert.DeserializeObject<userinfojson.ApiResponse>(responseContent);
             var banlist = userinfodata.ban.restrictions;
@@ -270,6 +277,7 @@ public class RiotClient
 
             await someusefulshit.get_region(account, userinfodata);
             return account;
+
         }
         catch (Exception e)
         {

@@ -2,14 +2,17 @@
 {
     public static class Constants
     {
+        
         public const string version = "4.0 alpha";
         public const string AUTH_URL = "https://auth.riotgames.com/api/v1/authorization";
         public const string ENTITLEMENT_URL = "https://entitlements.auth.riotgames.com/api/token/v1";
         public const string USERINFO_URL = "https://auth.riotgames.com/userinfo";
-        public const string USERAGENT = "70.0.0.247.1382";
+        public const string riotclientbuild = "70.0.0.247.1382";
+        public const string useragent = "RiotClient/51.0.0.4429735.4381201 rso-auth (Windows;10;;Professional, x64)";
         public const string CLIENTPLATFORM = "ew0KCSJwbGF0Zm9ybVR5cGUiOiAiUEMiLA0KCSJwbGF0Zm9ybU9TIjogIldpbmRvd3MiLA0KCSJwbGF0" +
             "Zm9ybU9TVmVyc2lvbiI6ICIxMC4wLjE5MDQyLjEuMjU2LjY0Yml0IiwNCgkicGxhdGZvcm1DaGlwc2V0IjogIlVua25vd24iDQp9";
 
+        #region regionshit
 
         public static readonly Dictionary<string, string> LOL2REG = new Dictionary<string, string>()
         {
@@ -530,6 +533,8 @@
             {"QA", "AP"},
             {"MZ", "EU"}
         };
+        #endregion
+
         public static readonly Dictionary<string, string> RANKID2RANK = new Dictionary<string, string>()
         {
             {"0", "Unranked"},
