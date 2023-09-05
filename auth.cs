@@ -87,11 +87,11 @@ public class RiotClient
             string expires_in = match.Groups[3].Value;
 
             return new Dictionary<string, string>
-        {
-            { "access_token", access_token },
-            { "id_token", id_token },
-            { "expires_in", expires_in }
-        };
+            {
+                { "access_token", access_token },
+                { "id_token", id_token },
+                { "expires_in", expires_in }
+            };
         }
 
         return null;
@@ -108,14 +108,6 @@ public class RiotClient
         {
             account.logpass = logpass;
 
-            Dictionary<string, string> headers = new Dictionary<string, string>
-            {
-                { "Accept-Language", "en-US,en;q=0.9" },
-                { "Accept", "application/json, text/plain, */*" },
-                //{ "User-Agent", $"Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 225.0.0.9.115 (iPhone13,3; iOS 15_3_1; it_IT; it-IT; scale=3.00; 1170x2532; 355286437) NW/3" }
-                { "User-Agent", $"RiotClient/{Constants.riotclientbuild} rso-auth (Windows;10;;Professional, x64)" }
-            };
-
             HttpClientHandler handler = new HttpClientHandler();
             if (proxy != null)
             {
@@ -127,58 +119,59 @@ public class RiotClient
                     handler.Proxy.Credentials = new NetworkCredential(proxy.login, proxy.password);
                 }
             }
-            //var client = new HttpClient(handler);
             var client = new RestClient(handler);
 
-
-            //client.Timeout = TimeSpan.FromSeconds(15);
-            //client.DefaultRequestHeaders.UserAgent.TryParseAdd("Mozilla/5.0 (iPhone; CPU iPhone OS 15_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 225.0.0.9.115 (iPhone13,3; iOS 15_3_1; it_IT; it-IT; scale=3.00; 1170x2532; 355286437) NW/3");
-            client.AddDefaultHeaders(headers);
             string username = logpass.Split(':')[0].Trim();
             string password = logpass.Split(':')[1].Trim();
 
-            //Auth2.Login(username, password);
-            //return account;
-
+            #region auth request 1
+            Dictionary<string, string> headers = new Dictionary<string, string>
+            {
+                { "Accept-Language", "en-US,en;q=0.9" },
+                { "Accept", "application/json, text/plain, */*" },
+                { "User-Agent", $"RiotClient/{Constants.riotclientbuild} rso-auth (Windows;10;;Professional, x64)" }
+            };
+            client.AddDefaultHeaders(headers);
             Dictionary<string, string> data = new Dictionary<string, string>
             {
-                { "acr_values", "" },
+                { "acr_values", "urn:riot:bronze" },
                 { "claims", "" },
                 { "client_id", "riot-client" },
-                { "nonce", "vYMrGocX3yrmrgnmKpVnOw" },
+                { "nonce", "oYnVwCSrlS5IHKh7iI16oQ" },
                 { "redirect_uri", "http://localhost/redirect" },
                 { "response_type", "token id_token" },
-                { "scope", "openid link ban lol_region account" }
+                { "scope", "openid link ban lol_region" }
             };
-            string jsonData = JsonConvert.SerializeObject(data);
 
+            string jsonData = JsonConvert.SerializeObject(data);
             var authrequest = new RestRequest(Constants.AUTH_URL, Method.Post);
-            //Console.WriteLine(jsonData);
             authrequest.AddParameter("application/json", jsonData, ParameterType.RequestBody);
             RestResponse response = await client.ExecuteAsync(authrequest);
+            #endregion
 
-            //string responseContent = response.Content;
+            Console.WriteLine(response.Content);
+            Console.WriteLine(11111111111111);
+            Console.ReadKey();
 
+            #region auth request 2
             data = new Dictionary<string, string>
             {
                 { "type", "auth" },
                 { "username", username },
                 { "password", password }
             };
-            client.AddDefaultHeader("user-agent", $"RiotClient/{Constants.riotclientbuild} rso-authenticator (Windows;10;;Professional, x64)");
+            //client.AddDefaultHeader("User-Agent", $"RiotClient/{Constants.riotclientbuild} rso-authenticator (Windows;10;;Professional, x64)");
             jsonData = JsonConvert.SerializeObject(data);
             var auth2request = new RestRequest(Constants.AUTH_URL, Method.Put);
             auth2request.AddParameter("application/json", jsonData, ParameterType.RequestBody);
             RestResponse response2 = await client.ExecuteAsync(auth2request);
-
             var responseContent = response2.Content;
-            //Console.WriteLine(responseContent);
+            #endregion
+
+            Console.WriteLine(responseContent);
             //Console.ReadLine();
-            if (!response.IsSuccessStatusCode)
-            {
-                account.code = 6;
-                return account;
-            }
+
+            #region token extraction
             string token = "";
             Dictionary<string, object> responseData = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, object>>(responseContent);
             if (responseData.ContainsKey("type") && responseData["type"].ToString() == "response")
@@ -204,6 +197,9 @@ public class RiotClient
                     }
                 }
             }
+            #endregion
+
+            #region checking for errors
             else if (responseContent.Contains("invalid_session_id"))
             {
                 account.code = 6;
@@ -229,12 +225,19 @@ public class RiotClient
                 account.code = 5;
                 return account;
             }
+            else if (!response.IsSuccessStatusCode)
+            {
+                account.code = 6;
+                return account;
+            }
             else
             {
                 account.code = 3;
                 return account;
             }
+            #endregion
 
+            #region entt extraction
             client.AddDefaultHeader("Authorization",$"Bearer {token}");
             var content = new StringContent("", Encoding.UTF8, "application/json");
             var enttrequest = new RestRequest(Constants.ENTITLEMENT_URL, Method.Post);
@@ -246,18 +249,20 @@ public class RiotClient
             Dictionary<string, string> dataentt = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(responseContent);
             string entt = dataentt["entitlements_token"];
             account.entt = entt;
+            #endregion
 
-
-            client.AddDefaultHeader("Authorization", $"Bearer {token}");
+            #region uinfo request
+            //client.AddDefaultHeader("Authorization", $"Bearer {token}");
             content = new StringContent("", Encoding.UTF8, "application/json");
             var uinforequest = new RestRequest(Constants.USERINFO_URL, Method.Post);
-            enttrequest.AddParameter("application/json", "{}", ParameterType.RequestBody);
+            uinforequest.AddParameter("application/json", "{}", ParameterType.RequestBody);
             response = await client.ExecuteAsync(uinforequest);
 
             responseContent = response.Content;
-            //Console.WriteLine(responseContent);
-
             var userinfodata = Newtonsoft.Json.JsonConvert.DeserializeObject<userinfojson.ApiResponse>(responseContent);
+            #endregion
+
+            #region account info extraction
             var banlist = userinfodata.ban.restrictions;
             DateTimeOffset? bantime = someusefulshit.normalize_ban(banlist);
             if (bantime == new DateTimeOffset())
@@ -274,15 +279,17 @@ public class RiotClient
             account.tagline = userinfodata.acct.tag_line;
             DateTimeOffset creationdate_patched = someusefulshit.normalizemillis(userinfodata.acct.created_at);
             account.registerdate = creationdate_patched;
-
             await someusefulshit.get_region(account, userinfodata);
+            #endregion
+
+            Console.WriteLine(account.ToString());
             return account;
 
         }
         catch (Exception e)
         {
             Console.WriteLine(e.ToString());
-            Console.ReadLine();
+            //Console.ReadLine();
         }
         return account;
         //catch (WebException ex)

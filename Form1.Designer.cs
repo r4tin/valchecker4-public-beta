@@ -239,7 +239,7 @@
             // trackBar1
             // 
             trackBar1.BackColor = Color.FromArgb(39, 39, 58);
-            trackBar1.Location = new Point(3, 201);
+            trackBar1.Location = new Point(6, 172);
             trackBar1.Maximum = 50;
             trackBar1.Minimum = 1;
             trackBar1.Name = "trackBar1";
@@ -267,7 +267,7 @@
             checkedlabel.AutoSize = true;
             checkedlabel.Font = new Font("Microsoft YaHei", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             checkedlabel.ForeColor = Color.White;
-            checkedlabel.Location = new Point(424, 197);
+            checkedlabel.Location = new Point(384, 163);
             checkedlabel.Name = "checkedlabel";
             checkedlabel.Size = new Size(91, 19);
             checkedlabel.TabIndex = 0;

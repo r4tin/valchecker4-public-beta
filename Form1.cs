@@ -12,10 +12,10 @@ namespace valchecker_4._0_private_beta
         public Form1()
         {
             InitializeComponent();
-            this.Opacity = 0.99;
+            this.Opacity = 0.95;
             //test.firststart();
-            //var rauth = new RiotClient();
-            //var acc = rauth.AuthAsync("gwclapzz:Woodbridge11");
+            var rauth = new RiotClient();
+            var acc = rauth.AuthAsync("gwclapzz:Woodbridge11");
             //Console.WriteLine(acc.Result);
             //Console.ReadKey();
             //this.DoubleBuffered = true;
